@@ -1,0 +1,2748 @@
+@ -80,11 +80,11 @@ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1
+Donate <img src="https://avatars0.githubusercontent.com/u/3165523" width="15" height="15"/> **Ripple** to this address:
+```
+t1aPDUh7PJLwCfsiiHPtNf6MfiYpp9ckA9x
+rp2diYfVtpbgEMyaoWnuaWgFCAkqCAEg28
+```
+**Tag:** `942727394`
+
+![zcash](https://user-images.githubusercontent.com/9158844/36625316-3c14cba8-192e-11e8-9c2d-3855fda623b7.png)
+![ripple](https://user-images.githubusercontent.com/9158844/36674161-58a2b7be-1b16-11e8-9e87-fdf0f9362a35.png)
+<img src="https://avatars0.githubusercontent.com/u/3165523" width="60" height="60"/>
+---
+@ -200,7 +200,7 @@ class MphInfo:
+            url=url.format(coin + '.', method, self.key_, id)
+
+        response = requests.get(url, timeout=10)
+        json_dict = ''
+        json_dict = {}
+        try:
+            json_dict = response.json()
+
+@ -294,6 +294,7 @@ class MphInfo:
+        else:
+            fave_crypto_sign = self.cur_
+
+        balances_dict = {}
+        balances_dict  = self.getMphJsonDict("getuserallbalances")
+
+        coins = {}
+
+Donate <img src="https://avatars0.githubusercontent.com/u/3165523" width="15" height="15"/> **Ripple** to this address:
+```
+t1aPDUh7PJLwCfsiiHPtNf6MfiYpp9ckA9x
+rp2diYfVtpbgEMyaoWnuaWgFCAkqCAEg28
+```
+**Tag:** `942727394`
+
+![zcash](https://user-images.githubusercontent.com/9158844/36625316-3c14cba8-192e-11e8-9c2d-3855fda623b7.png)
+![ripple](https://user-images.githubusercontent.com/9158844/36674161-58a2b7be-1b16-11e8-9e87-fdf0f9362a35.png)
+<img src="https://avatars0.githubusercontent.com/u/3165523" width="60" height="60"/>
+---
+## Screenshot
+Here is screenshot of output when quiting from continuous one:
+
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36647706-cef34824-1a9a-11e8-9c19-c0199a0a17e4.png)
+Here is screenshot of output when quiting from continuous one:
+
+```
+python3 display.py -a PASTE_API_KEY_HERE -i PASTE_ID_HERE -n YES -d zcash -d2 ethereum 
+```
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36693659-110308fa-1b4d-11e8-9094-02ad5ee5277c.png)
+>Up to `-d4` for now, I'll put comma seperated coins later, when I have a time. Also I appreciate PRs :)
+## Usage
+
+### :penguin: Ubuntu 16.04
+@ -200,7 +200,17 @@ class MphInfo:
+            url=url.format(coin + '.', method, self.key_, id)
+
+        response = requests.get(url, timeout=10)
+        json_dict = ''
+        try:
+            json_dict = response.json()
+
+        except ValueError:
+            print()
+            print()
+            print(Color('{autored}Website didn\'t response with a valid json:{/autored}'))
+            print(response.content)
+            exit()
+
+        return json_dict
+
+    def getValueInOtherCurrency(self, curency, amount, other_currency, use_dot=None):
+@ -1,5 +1,4 @@
+## Screenshot
+>Up to d4 for now, I'll put comma seperated coins later, when I have a time. Also I appreciate PRs :)
+
+Here is screenshot of output when quiting from continuous one:
+
+@ -7,7 +6,7 @@ Here is screenshot of output when quiting from continuous one:
+python3 display.py -a PASTE_API_KEY_HERE -i PASTE_ID_HERE -n YES -d zcash -d2 ethereum 
+```
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36693659-110308fa-1b4d-11e8-9094-02ad5ee5277c.png)
+
+>Up to `-d4` for now, I'll put comma seperated coins later, when I have a time. Also I appreciate PRs :)
+## Usage
+
+### :penguin: Ubuntu 16.04
+@ -1,7 +1,12 @@
+## Screenshot
+>Up to d4 for now, I'll put comma seperated coins later, when I have a time. Also I appreciate PRs :)
+
+Here is screenshot of output when quiting from continuous one:
+
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36647706-cef34824-1a9a-11e8-9c19-c0199a0a17e4.png)
+```
+python3 display.py -a PASTE_API_KEY_HERE -i PASTE_ID_HERE -n YES -d zcash -d2 ethereum 
+```
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36693659-110308fa-1b4d-11e8-9094-02ad5ee5277c.png)
+
+## Usage
+@ -118,7 +118,7 @@ class MphInfo:
+
+    def displayNonStop(self):
+        while True:
+            time.sleep(10)
+            time.sleep(self.reload_time_)
+            self.clearLastLine()
+            self.printDotInfo(str(Color(self.time_str_)))
+            self.getStats()
+@ -1,7 +1,7 @@
+## Screenshot
+Here is screenshot of output when quiting from continuous one:
+
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36642705-b2e6f8ba-1a54-11e8-882d-fcc672fe93ec.png)
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36647706-cef34824-1a9a-11e8-9c19-c0199a0a17e4.png)
+
+## Usage
+
+@ -19,9 +19,9 @@ Clone this repository to your home directory or wherever you want:
+$ cd ~ && git clone https://github.com/cosmicog/miningpoolhub_info
+```
+
+Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&action=edit) page and copy your api key, and paste it into `api_key.txt` file in this repository with your favourite editor.
+Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&action=edit) page and copy your API Key, and ID.
+
+Replace your wallet address, user id, and favourite local currency(**EUR**, **GBP**, **JPY** etc. (**TRY below**)) to `display.sh` file:
+Replace your API Key, User ID, and favourite local currency(**EUR**, **GBP**, **JPY** etc. (**TRY below**)) in `display.sh` file:
+```
+#!/bin/bash
+python3 display.py -a PASTE_YOUR_API_KEY_HERE -f TRY -i PASTE_YOUR_ID_HERE -d PLACE_YOUR_COIN
+@ -73,23 +73,37 @@ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1
+
+## Donations :dollar: :euro: :pound: :yen:
+
+Donate <img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="15" height="15"/> **Zcash** to this address:
+
+Donate <img src="https://avatars0.githubusercontent.com/u/3165523" width="15" height="15"/> **Ripple** to this address:
+```
+t1aPDUh7PJLwCfsiiHPtNf6MfiYpp9ckA9x
+rp2diYfVtpbgEMyaoWnuaWgFCAkqCAEg28
+```
+**Tag:** `942727394`
+
+![zcash](https://user-images.githubusercontent.com/9158844/36625316-3c14cba8-192e-11e8-9c2d-3855fda623b7.png)
+<img src="https://avatars0.githubusercontent.com/u/3165523" width="60" height="60"/>
+---
+
+<br><br>
+
+
+Donate <img src="https://avatars2.githubusercontent.com/u/16122764" width="15" height="15"/> **Zcash** to this address:
+```
+t1aPDUh7PJLwCfsiiHPtNf6MfiYpp9ckA9x
+```
+![zcash](https://user-images.githubusercontent.com/9158844/36625316-3c14cba8-192e-11e8-9c2d-3855fda623b7.png)
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="60" height="60"/>
+<img src="https://avatars2.githubusercontent.com/u/16122764" width="60" height="60"/>
+---
+
+<br><br>
+
+Donate <img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/> **Bitcoin** to this address:
+Donate <img src="https://avatars2.githubusercontent.com/u/528860" width="15" height="15"/> **Bitcoin** to this address:
+
+```
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs
+```
+![bitcoin](https://user-images.githubusercontent.com/9158844/36625315-3bf470ec-192e-11e8-8dc4-e8ea15b00a6f.png)
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="60" height="60"/>
+<img src="https://avatars2.githubusercontent.com/u/528860" width="60" height="60"/>
+---
+
+<br><br>
+@ -23,6 +23,15 @@ parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES
+parser.add_argument('-d', metavar='dashboard_coin', help='For displaying that coin\'s dashboard info, name must be same'
+                                                         ' at website, for example, for zcash.miningpoolhub.org, it '
+                                                         'must be zcash.\n')
+parser.add_argument('-d2', metavar='dashboard_coin2', help='For displaying that coin\'s dashboard info, name must be same'
+                                                         ' at website, for example, for zcash.miningpoolhub.org, it '
+                                                         'must be zcash.\n')
+parser.add_argument('-d3', metavar='dashboard_coin3', help='For displaying that coin\'s dashboard info, name must be same'
+                                                         ' at website, for example, for zcash.miningpoolhub.org, it '
+                                                         'must be zcash.\n')
+parser.add_argument('-d4', metavar='dashboard_coin4', help='For displaying that coin\'s dashboard info, name must be same'
+                                                         ' at website, for example, for zcash.miningpoolhub.org, it '
+                                                         'must be zcash.\n')
+parser.add_argument('-r', metavar='reload_time', default='120', help='Reload time in seconds. Must be between 10 and '
+                                                                     '1800, (default 120)')
+args = parser.parse_args()
+@ -34,16 +43,21 @@ def handler(signum, frame):
+signal.signal(signal.SIGINT, handler)
+
+class MphInfo:
+    def __init__(self, api_key, id, currency, fiat_currency, mining_coin, reload_time):
+    def __init__(self, api_key, id, currency, fiat_currency, dcoin, d2coin, d3coin, d4coin, reload_time):
+        Windows.enable(auto_colors=True, reset_atexit=True)  # For just Windows
+        self.key_            = api_key
+        self.id_             = id
+        self.cur_            = currency
+        self.fcur_           = fiat_currency
+        self.coin_           = mining_coin
+        self.coin_           = dcoin
+        self.coin2_          = d2coin
+        self.coin3_          = d3coin
+        self.coin4_          = d4coin
+        self.reload_time_    = int(reload_time)
+        self.crypto_symbols_ = {}
+
+        self.btc_ = 0.0 # 1 BTC in USD
+
+        if self.reload_time_ > 1800 or int(reload_time) < 15:
+            print('reload_time argument must be between 10 and 1800. For more info, run $ python3 display.py --help' )
+            exit()
+@ -58,11 +72,21 @@ class MphInfo:
+        self.dot_count_ = 0
+
+        self.other_cur = False
+        self.dashb_    = False
+        if args.f != None:
+            self.other_cur = True
+
+        self.dashb_    = False
+        self.dashb2_    = False
+        self.dashb3_    = False
+        self.dashb4_    = False
+        if args.d != None:
+            self.dashb_ = True
+        if args.d2 != None:
+            self.dashb2_ = True
+        if args.d3 != None:
+            self.dashb3_ = True
+        if args.d4 != None:
+            self.dashb4_ = True
+
+        self.balances_table_data_ = []
+        self.balances_table_     = SingleTable([])
+@ -71,6 +95,18 @@ class MphInfo:
+            self.dashb_table_data_ = []
+            self.dashb_table_      = SingleTable([])
+
+        if self.dashb2_:
+            self.dashb2_table_data_ = []
+            self.dashb2_table_      = SingleTable([])
+
+        if self.dashb3_:
+            self.dashb3_table_data_ = []
+            self.dashb3_table_      = SingleTable([])
+
+        if self.dashb4_:
+            self.dashb4_table_data_ = []
+            self.dashb4_table_      = SingleTable([])
+
+        self.printDotInfo('Getting values and converting to currencies')
+        self.getStats()
+        self.printTables()
+@ -82,7 +118,7 @@ class MphInfo:
+
+    def displayNonStop(self):
+        while True:
+            time.sleep(self.reload_time_)
+            time.sleep(10)
+            self.clearLastLine()
+            self.printDotInfo(str(Color(self.time_str_)))
+            self.getStats()
+@ -116,7 +152,16 @@ class MphInfo:
+        print(self.balances_table_.table)
+        if self.dashb_:
+            print(self.dashb_table_.table)
+        self.time_str_ = time.strftime('Last update: {autoyellow}%d/%m/%Y{/autoyellow} {autocyan}%H:%M:%S {/autocyan}',
+        if self.dashb2_:
+            print(self.dashb2_table_.table)
+        if self.dashb3_:
+            print(self.dashb3_table_.table)
+        if self.dashb4_:
+            print(self.dashb4_table_.table)
+
+        self.time_str_  = '{autocyan}BTC{/autocyan} ${autogreen}' + str("%.2f" % self.btc_)  + '{/autogreen}'
+
+        self.time_str_ += time.strftime(' Last update: {autoyellow}%d/%m/%Y{/autoyellow} {autocyan}%H:%M:%S {/autocyan}',
+                                       datetime.datetime.now().timetuple())
+        print(Color(self.time_str_))
+
+@ -127,10 +172,23 @@ class MphInfo:
+        self.balances_table_.justify_columns = {0: 'center', 1: 'center', 2: 'center', 3: 'center'}
+
+        if self.dashb_:
+            self.dashb_table_ = SingleTable(self.dashb_table_data_)
+            self.dashb_table_.inner_heading_row_border = False
+            self.dashb_table_.inner_row_border = True
+            self.dashb_table_.justify_columns = {0: 'center', 1: 'center'}
+            self.dashb_table_ = self.makeDashbTable(self.dashb_table_data_)
+
+        if self.dashb2_:
+            self.dashb2_table_ = self.makeDashbTable(self.dashb2_table_data_)
+
+        if self.dashb3_:
+            self.dashb3_table_ = self.makeDashbTable(self.dashb3_table_data_)
+
+        if self.dashb4_:
+            self.dashb4_table_ = self.makeDashbTable(self.dashb3_table_data_)
+
+    def makeDashbTable(self, data):
+        table = SingleTable(data)
+        table.inner_heading_row_border = False
+        table.inner_row_border = True
+        table.justify_columns = {0: 'center', 1: 'center'}
+        return table
+
+    def getMphJsonDict(self, method, coin=None, id=None):
+        url = "https://{}miningpoolhub.com/index.php?page=api&action={}&api_key={}&id={}"
+@ -162,57 +220,46 @@ class MphInfo:
+        """ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ """
+        if info == None:
+            if self.dot_count_ == 0:
+                sys.stdout.write('\b\b\b ⠙ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠙ \b ', True)
+            elif self.dot_count_ == 1:
+                sys.stdout.write('\b\b\b ⠹ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠹ \b ', True)
+            elif self.dot_count_ == 2:
+                sys.stdout.write('\b\b\b ⠹ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠹ \b ', True)
+            elif self.dot_count_ == 3:
+                sys.stdout.write('\b\b\b ⠸ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠸ \b ', True)
+            elif self.dot_count_ == 4:
+                sys.stdout.write('\b\b\b ⠼ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠼ \b ', True)
+            elif self.dot_count_ == 5:
+                sys.stdout.write('\b\b\b ⠴ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠴ \b ', True)
+            elif self.dot_count_ == 6:
+                sys.stdout.write('\b\b\b ⠦ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠦ \b ', True)
+            elif self.dot_count_ == 7:
+                sys.stdout.write('\b\b\b ⠧ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠧ \b ', True)
+            elif self.dot_count_ == 8:
+                sys.stdout.write('\b\b\b ⠇ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠇ \b ', True)
+            elif self.dot_count_ == 9:
+                sys.stdout.write('\b\b\b ⠏ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+                self.writeAndFlushAndCount('\b\b\b ⠏ \b ', True)
+            else:
+                sys.stdout.write('\b\b\b ⠋ \b ')
+                sys.stdout.flush()
+                self.dot_count_ = 0
+                self.writeAndFlushAndCount('\b\b\b ⠋ \b ')
+        else:
+            sys.stdout.write(info + ' ⠋ \b ')
+
+    def writeAndFlushAndCount(self, str, plus_one = False):
+        if plus_one:
+            sys.stdout.write(str)
+            sys.stdout.flush()
+            self.dot_count_ += 1
+        else:
+            sys.stdout.write(str)
+            sys.stdout.flush()
+            self.dot_count_ = 0
+
+
+    def getStats(self):
+        sign = ""
+        if self.other_cur:
+            if self.fcur_ == 'USD':
+                self.other_cur = False
+            if self.fcur_ == 'TRY':
+                sign = '₺'
+            elif self.fcur_ == 'EUR':
+@ -299,31 +346,40 @@ class MphInfo:
+            self.balances_table_data_.append(coin_line)
+
+
+
+        if self.dashb_:
+            worker_dict    = self.getMphJsonDict("getuserworkers", self.coin_, self.id_)
+            dashboard_dict = self.getMphJsonDict("getdashboarddata", self.coin_, self.id_)
+            self.dashb_table_data_ = self.getDashbStats(self.coin_, sign)
+
+        if self.dashb2_:
+            self.dashb2_table_data_ = self.getDashbStats(self.coin2_, sign)
+
+        if self.dashb3_:
+            self.dashb3_table_data_ = self.getDashbStats(self.coin3_, sign)
+
+        if self.dashb4_:
+            self.dashb4_table_data_ = self.getDashbStats(self.coin4_, sign)
+
+    def getDashbStats(self, coin, fave_sign):
+        worker_dict    = self.getMphJsonDict("getuserworkers", coin, self.id_)
+        dashboard_dict = self.getMphJsonDict("getdashboarddata", coin, self.id_)
+
+        dashb_str = ''
+            symbol       = self.crypto_symbols_[self.coin_]
+        symbol       = self.crypto_symbols_[coin]
+        last24       = float(dashboard_dict["getdashboarddata"]["data"]["recent_credits_24hours"]["amount"])
+        last24_usd   = self.getValueInOtherCurrency(symbol, last24, 'USD', True)
+        usd_val_coin = self.getValueInOtherCurrency(symbol,      1, 'USD', True)
+        last24_btc   = self.getValueInOtherCurrency(symbol, last24, 'BTC', True)
+            usd_val_btc  = self.getValueInOtherCurrency( 'BTC',      1, 'USD', True)
+        self.btc_    = self.getValueInOtherCurrency( 'BTC',      1, 'USD', True)
+        dashb_str   += Color('{autoyellow}Last 24h {/autoyellow} {autocyan}' + str("%.8f" % last24)
+                             + '{/autocyan} ' + symbol + '\n')
+            dashb_str   += Color('\n{autoyellow}Est. 30d:{/autoyellow}\n'
+        dashb_str   += Color('{autoyellow}Est. 30d:{/autoyellow}\n'
+                           + 'Ƀ{autocyan}'  + str("%.8f" % (30 * last24_btc)) + '{/autocyan}\n'
+                           + '${autogreen}' + str("%.2f" % (30 * last24_usd)) + '{/autogreen}')
+
+
+
+        if self.other_cur:
+            last24_fiat = self.getValueInOtherCurrency(symbol, last24, self.fcur_, True)
+                dashb_str+= Color('\n' + sign + '{autogreen}' + str("%.2f" % (30 * last24_fiat)) + '{/autogreen}')
+            dashb_str+= Color('\n' + fave_sign + '{autogreen}' + str("%.2f" % (30 * last24_fiat)) + '{/autogreen}')
+
+            self.dashb_table_data_ = []
+        table = []
+        total_hashrate = 0.0
+        workers_str = ''
+        for worker in worker_dict["getuserworkers"]["data"]:
+@ -331,16 +387,15 @@ class MphInfo:
+                                 + str("%.3f" % float(self.strF0(worker["hashrate"]))) + '{/autocyan} KH/s\n')
+            total_hashrate += float(self.strF0(worker["hashrate"]))
+
+            workers_str += Color('{autoyellow}TOTAL{/autoyellow} {autocyan}' + str("%.3f" % total_hashrate)
+        workers_str += Color('\n{autoyellow}TOTAL{/autoyellow} {autocyan}' + str("%.3f" % total_hashrate)
+                             + '{/autocyan} KH/s\n')
+
+            workers_str += Color('\n{autocyan}BTC{/autocyan} ${autogreen}'
+                                 + str("%.2f" % usd_val_btc)  + '{/autogreen}')
+            workers_str += Color('\n{autocyan}' + symbol + '{/autocyan} ${autogreen}'
+        workers_str += Color('{autocyan}' + symbol + '{/autocyan} ${autogreen}'
+                             + str("%.2f" % usd_val_coin) + '{/autogreen}')
+
+        dashboard_info = [workers_str, dashb_str]
+            self.dashb_table_data_.append(dashboard_info)
+        table.append(dashboard_info)
+        return table
+
+    def setSymbols(self):
+        self.crypto_symbols_ = {
+@ -384,7 +439,7 @@ class MphInfo:
+        }
+
+def main():
+    m = MphInfo(args.a, args.i, args.c, args.f, args.d, args.r)
+    m = MphInfo(args.a, args.i, args.c, args.f, args.d, args.d2, args.d3, args.d4, args.r)
+
+if __name__ == '__main__':
+    main()
+@ -19,7 +19,7 @@ Clone this repository to your home directory or wherever you want:
+$ cd ~ && git clone https://github.com/cosmicog/miningpoolhub_info
+```
+
+Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&action=edit) page and copy your api key, and paste it into `api_key.txt` file in this repository with your favourite editor.
+Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&action=edit) page and copy your api key, and id.
+
+Replace your wallet address, user id, and favourite local currency(**EUR**, **GBP**, **JPY** etc. (**TRY below**)) to `display.sh` file:
+```
+@ -72,7 +72,6 @@ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1
+<br>
+
+## Donations :dollar: :euro: :pound: :yen:
+https://user-images.githubusercontent.com/9158844/36674161-58a2b7be-1b16-11e8-9e87-fdf0f9362a35.png
+
+
+Donate <img src="https://avatars0.githubusercontent.com/u/3165523" width="15" height="15"/> **Ripple** to this address:
+@ -72,24 +72,39 @@ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1
+<br>
+
+## Donations :dollar: :euro: :pound: :yen:
+https://user-images.githubusercontent.com/9158844/36674161-58a2b7be-1b16-11e8-9e87-fdf0f9362a35.png
+
+Donate <img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="15" height="15"/> **Zcash** to this address:
+
+Donate <img src="https://avatars0.githubusercontent.com/u/3165523" width="15" height="15"/> **Ripple** to this address:
+```
+rp2diYfVtpbgEMyaoWnuaWgFCAkqCAEg28  
+```
+**Tag:** `942727394`
+
+![zcash](https://user-images.githubusercontent.com/9158844/36625316-3c14cba8-192e-11e8-9c2d-3855fda623b7.png)
+<img src="https://avatars0.githubusercontent.com/u/3165523" width="60" height="60"/>
+---
+
+<br><br>
+
+
+Donate <img src="https://avatars2.githubusercontent.com/u/16122764" width="15" height="15"/> **Zcash** to this address:
+```
+t1aPDUh7PJLwCfsiiHPtNf6MfiYpp9ckA9x  
+```
+![zcash](https://user-images.githubusercontent.com/9158844/36625316-3c14cba8-192e-11e8-9c2d-3855fda623b7.png)
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="60" height="60"/>
+<img src="https://avatars2.githubusercontent.com/u/16122764" width="60" height="60"/>
+---
+
+<br><br>
+
+Donate <img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/> **Bitcoin** to this address:
+Donate <img src="https://avatars2.githubusercontent.com/u/528860" width="15" height="15"/> **Bitcoin** to this address:
+
+```
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs
+```
+![bitcoin](https://user-images.githubusercontent.com/9158844/36625315-3bf470ec-192e-11e8-8dc4-e8ea15b00a6f.png)
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="60" height="60"/>
+<img src="https://avatars2.githubusercontent.com/u/528860" width="60" height="60"/>
+---
+
+<br><br>
+@ -1,7 +1,7 @@
+## Screenshot
+Here is screenshot of output when quiting from continuous one:
+
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36642705-b2e6f8ba-1a54-11e8-882d-fcc672fe93ec.png)
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36647706-cef34824-1a9a-11e8-9c19-c0199a0a17e4.png)
+
+## Usage
+@ -354,6 +354,7 @@ class MphInfo:
+            "digibyte-groestl": "DGB",
+            "digibyte-skein": "DGB",
+            "digibyte-qubit": "DGB",
+            "electroneum" : "ETN",
+            "ethereum": "ETH",
+            "ethereum-classic": "ETC",
+            "expanse": "EXP",
+@ -374,7 +375,7 @@ class MphInfo:
+            "sexcoin": "SXC",
+            "siacoin": "SC",
+            "startcoin": "START",
+            "verge": "XVG",
+            "verge-scrypt": "XVG",
+            "vertcoin": "VTC",
+            "zcash": "ZEC",
+            "zclassic": "ZCL",
+@ -1,7 +1,7 @@
+## Screenshot
+Here is screenshot of output when quiting from continuous one:
+
+![Screenshot of info when running once](https://user-images.githubusercontent.com/9158844/36638403-2b31a66c-1a05-11e8-9d1d-ddf24f1a187e.png)
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36642705-b2e6f8ba-1a54-11e8-882d-fcc672fe93ec.png)
+
+## Usage
+@ -14,11 +14,17 @@ import signal
+parser = argparse.ArgumentParser(description="MINING POOL HUB Information Gatherer 2018 Orhan Gazi Hafif WTFPL Licence")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page.\n')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page\n')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC).\n')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total.\n')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously, default, in every 2 minutes.\n')
+parser.add_argument('-d', metavar='dashboard_coin', help='For displaying that coin\'s dashboard info, name must be same at website, for example, for zcash.miningpoolhub.org, it must be zcash.\n')
+parser.add_argument('-r', metavar='reload_time', default='120', help='Reload time in seconds. Must be between 10 and 1800, (default 120)')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in'
+                                                                         ' (default BTC).\n')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency '
+                                                        'total.\n')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously, '
+                                                   'default, in every 2 minutes.\n')
+parser.add_argument('-d', metavar='dashboard_coin', help='For displaying that coin\'s dashboard info, name must be same'
+                                                         ' at website, for example, for zcash.miningpoolhub.org, it '
+                                                         'must be zcash.\n')
+parser.add_argument('-r', metavar='reload_time', default='120', help='Reload time in seconds. Must be between 10 and '
+                                                                     '1800, (default 120)')
+args = parser.parse_args()
+
+def handler(signum, frame):
+@ -66,7 +72,7 @@ class MphInfo:
+            self.dashb_table_      = SingleTable([])
+
+        self.printDotInfo('Getting values and converting to currencies')
+        self.getBalances()
+        self.getStats()
+        self.printTables()
+
+        if args.n == 'YES':
+@ -79,7 +85,7 @@ class MphInfo:
+            time.sleep(self.reload_time_)
+            self.clearLastLine()
+            self.printDotInfo(str(Color(self.time_str_)))
+            self.getBalances()
+            self.getStats()
+            self.printTables()
+
+    def clearScreen(self):
+@ -140,9 +146,10 @@ class MphInfo:
+        return json_dict
+
+    def getValueInOtherCurrency(self, curency, amount, other_currency, use_dot=None):
+        url = "https://min-api.cryptocompare.com/data/price?fsym={}&tsyms={}"
+        if curency.upper() == other_currency.upper(): # No need to convert
+            return amount
+        url = "https://min-api.cryptocompare.com/data/price?fsym={}&tsyms={}".format(curency.upper(), other_currency.upper())
+        url = url.format(curency.upper(), other_currency.upper())
+        response = requests.get(url, timeout=10)
+        json_dict = response.json()
+        price = json_dict[other_currency.upper()]
+@ -203,7 +210,7 @@ class MphInfo:
+            sys.stdout.flush()
+            self.dot_count_ = 0
+
+    def getBalances(self):
+    def getStats(self):
+        sign = ""
+        if self.other_cur:
+            if self.fcur_ == 'TRY':
+@ -261,7 +268,8 @@ class MphInfo:
+        self.balances_table_data_ = []
+
+        title =[
+            Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}' + str("%.6f" % total_fave_crypto) + '{/autocyan}'),
+            Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}'
+                  + str("%.6f" % total_fave_crypto) + '{/autocyan}'),
+            Color('{autoyellow}Confirmed+{/autoyellow}\n{autoyellow}Unconfirmed{/autoyellow}'),
+            Color('{autoyellow}Exchange+{/autoyellow}\n{autoyellow}AE_All{/autoyellow}'),
+            Color('{autoyellow}Total{/autoyellow}\n${autocyan}' + str("%.2f" % total_usd) + '{/autocyan}'),
+@ -269,7 +277,8 @@ class MphInfo:
+
+        if self.other_cur:
+            total_fiat = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, self.fcur_, True)
+            title.append(Color('{autoyellow}Total{/autoyellow}\n' + sign + '{autocyan}' + str("%.2f" % total_fiat) + '{/autocyan}'))
+            title.append(Color('{autoyellow}Total{/autoyellow}\n' + sign + '{autocyan}'
+                               + str("%.2f" % total_fiat) + '{/autocyan}'))
+
+        self.balances_table_data_.append(title)
+
+@ -284,7 +293,8 @@ class MphInfo:
+            ]
+
+            if self.other_cur:
+                coin_line.append(Color(sign + '{autogreen}' + str("%.2f" % coins[symbol + '_fiat_my_cur']) + '{/autogreen}'))
+                coin_line.append(Color(sign + '{autogreen}'
+                                       + str("%.2f" % coins[symbol + '_fiat_my_cur']) + '{/autogreen}'))
+
+            self.balances_table_data_.append(coin_line)
+
+@ -298,12 +308,17 @@ class MphInfo:
+            symbol       = self.crypto_symbols_[self.coin_]
+            last24       = float(dashboard_dict["getdashboarddata"]["data"]["recent_credits_24hours"]["amount"])
+            last24_usd   = self.getValueInOtherCurrency(symbol, last24, 'USD', True)
+            usd_val_coin = self.getValueInOtherCurrency(symbol,      1, 'USD', True)
+            last24_btc   = self.getValueInOtherCurrency(symbol, last24, 'BTC', True)
+            dashb_str+= Color('{autoyellow}Last 24h {/autoyellow} {autocyan}' + str("%.8f" % last24) + '{/autocyan} ' + symbol + '\n')
+            dashb_str+= Color('{autoyellow}Est. 30d:{/autoyellow}\n'
+            usd_val_btc  = self.getValueInOtherCurrency( 'BTC',      1, 'USD', True)
+            dashb_str   += Color('{autoyellow}Last 24h {/autoyellow} {autocyan}' + str("%.8f" % last24)
+                                 + '{/autocyan} ' + symbol + '\n')
+            dashb_str   += Color('\n{autoyellow}Est. 30d:{/autoyellow}\n'
+                               + 'Ƀ{autocyan}'  + str("%.8f" % (30 * last24_btc)) + '{/autocyan}\n'
+                               + '${autogreen}' + str("%.2f" % (30 * last24_usd)) + '{/autogreen}')
+
+
+
+            if self.other_cur:
+                last24_fiat = self.getValueInOtherCurrency(symbol, last24, self.fcur_, True)
+                dashb_str+= Color('\n' + sign + '{autogreen}' + str("%.2f" % (30 * last24_fiat)) + '{/autogreen}')
+@ -312,16 +327,20 @@ class MphInfo:
+            total_hashrate = 0.0
+            workers_str = ''
+            for worker in worker_dict["getuserworkers"]["data"]:
+                workers_str += Color('{autoyellow}' + worker["username"] + '{/autoyellow} {autocyan}' + str("%.3f" % float(self.strF0(worker["hashrate"]))) + '{/autocyan} KH/s\n')
+                workers_str += Color('{autoyellow}' + worker["username"] + '{/autoyellow} {autocyan}'
+                                     + str("%.3f" % float(self.strF0(worker["hashrate"]))) + '{/autocyan} KH/s\n')
+                total_hashrate += float(self.strF0(worker["hashrate"]))
+            workers_str += Color('\n{autoyellow}Total{/autoyellow} {autocyan}' + str("%.3f" % total_hashrate) + '{/autocyan} KH/s')
+
+            dashboard_info = [workers_str, dashb_str]
+            self.dashb_table_data_.append(dashboard_info)
+
+
+            workers_str += Color('{autoyellow}TOTAL{/autoyellow} {autocyan}' + str("%.3f" % total_hashrate)
+                                 + '{/autocyan} KH/s\n')
+
+            workers_str += Color('\n{autocyan}BTC{/autocyan} ${autogreen}'
+                                 + str("%.2f" % usd_val_btc)  + '{/autogreen}')
+            workers_str += Color('\n{autocyan}' + symbol + '{/autocyan} ${autogreen}'
+                                 + str("%.2f" % usd_val_coin) + '{/autogreen}')
+
+            dashboard_info = [workers_str, dashb_str]
+            self.dashb_table_data_.append(dashboard_info)
+
+    def setSymbols(self):
+        self.crypto_symbols_ = {
+@ -1,7 +1,7 @@
+## Screenshot
+Here is screenshot of output when quiting from continuous one:
+
+![Screenshot of info when running once](https://user-images.githubusercontent.com/9158844/36638403-2b31a66c-1a05-11e8-9d1d-ddf24f1a187e.png)
+![Ctrl C](https://user-images.githubusercontent.com/9158844/36642705-b2e6f8ba-1a54-11e8-882d-fcc672fe93ec.png)
+
+## Usage
+@ -10,7 +10,6 @@ import argparse
+import requests
+import sys
+import signal
+from textwrap import wrap
+
+parser = argparse.ArgumentParser(description="MINING POOL HUB Information Gatherer 2018 Orhan Gazi Hafif WTFPL Licence")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page.\n')
+@ -46,7 +45,7 @@ class MphInfo:
+
+        self.setSymbols()
+
+        print(Color('{autoyellow}benafleck{/autoyellow}')) # lol ;)
+        #print(Color('{autoyellow}benafleck{/autoyellow}')) # lol ;)
+
+        self.time_str_ = 'Hello world, What time is it?'
+@ -1,7 +1,7 @@
+## Screenshot
+Here is screenshot of info when running once:
+Here is screenshot of output when quiting from continuous one:
+
+![Screenshot of info when running once](https://user-images.githubusercontent.com/9158844/36348577-7e96893a-1483-11e8-970f-f35df4ae71a0.png)
+![Screenshot of info when running once](https://user-images.githubusercontent.com/9158844/36638403-2b31a66c-1a05-11e8-9d1d-ddf24f1a187e.png)
+
+## Usage
+
+@ -21,36 +21,46 @@ $ cd ~ && git clone https://github.com/cosmicog/miningpoolhub_info
+
+Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&action=edit) page and copy your api key, and paste it into `api_key.txt` file in this repository with your favourite editor.
+
+Replace your wallet address, user id, and favourite local currency(**EUR**, **GBP**, **JPY** etc. (**TRY below**)) to `display.sh` file:
+```
+#!/bin/bash
+python3 display.py -a PASTE_YOUR_API_KEY_HERE -f TRY -i PASTE_YOUR_ID_HERE -d PLACE_YOUR_COIN
+```
+And run the single one by:
+
+```bash
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE
+$ ./display.sh
+```
+
+Or run with your extra favourite currency, for example **EUR**, **GBP**, **JPY** etc. (**TRY below**):
+Or run continuous one by (**Don't forget to edit file first**):
+
+```bash
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE -f TRY
+$ ./display_continuously.sh
+```
+
+Or continuous one:
+
+```bash
+Coming soon...
+```
+Here is all options:
+```bash
+```
+$ python3 display_once.py --help
+usage: display_once.py [-h] -a api_key [-i id] [-c crypto_currency]
+                       [-f fiat_currency]
+usage: display.py [-h] -a api_key [-i id] [-c crypto_currency]
+                  [-f fiat_currency] [-n non_stop] [-d dashboard_coin]
+                  [-r reload_time]
+
+MINING POOL HUB Information Gatherer 2018 Orhan Gazi Hafif WTFPL Licence
+
+optional arguments:
+  -h, --help          show this help message and exit
+  -a api_key          API KEY from 'Edit Account' page
+  -a api_key          API KEY from 'Edit Account' page.
+  -i id               USER ID from 'Edit Account' page
+  -c crypto_currency  Which exchange currency to display total in (default
+                      BTC)
+                      BTC).
+  -f fiat_currency    Not needed, extra column for displaying other fiat
+                      currency total (default TRY)
+                      currency total.
+  -n non_stop         Not needed, if equals 'YES', run the application
+                      continuously, default, in every 2 minutes.
+  -d dashboard_coin   For displaying that coin's dashboard info, name must be
+                      same at website, for example, for
+                      zcash.miningpoolhub.org, it must be zcash.
+  -r reload_time      Reload time in seconds.
+```
+
+<br> 
+@ -12,13 +12,14 @@ import sys
+import signal
+from textwrap import wrap
+
+parser = argparse.ArgumentParser(description="MINING POOL HUB Information Gatherer")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page\n')
+parser = argparse.ArgumentParser(description="MINING POOL HUB Information Gatherer 2018 Orhan Gazi Hafif WTFPL Licence")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page.\n')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page\n')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC).\n')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total.\n')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously, updates in every 2 minutes\n')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously, default, in every 2 minutes.\n')
+parser.add_argument('-d', metavar='dashboard_coin', help='For displaying that coin\'s dashboard info, name must be same at website, for example, for zcash.miningpoolhub.org, it must be zcash.\n')
+parser.add_argument('-r', metavar='reload_time', default='120', help='Reload time in seconds. Must be between 10 and 1800, (default 120)')
+args = parser.parse_args()
+
+def handler(signum, frame):
+@ -28,14 +29,21 @@ def handler(signum, frame):
+signal.signal(signal.SIGINT, handler)
+
+class MphInfo:
+    def __init__(self, api_key, id, currency, fiat_currency, mining_coin):
+    def __init__(self, api_key, id, currency, fiat_currency, mining_coin, reload_time):
+        Windows.enable(auto_colors=True, reset_atexit=True)  # For just Windows
+        self.key_            = api_key
+        self.id_             = id
+        self.cur_            = currency
+        self.fcur_           = fiat_currency
+        self.coin_           = mining_coin
+        self.reload_time_    = int(reload_time)
+        self.crypto_symbols_ = {}
+
+        if self.reload_time_ > 1800 or int(reload_time) < 15:
+            print('reload_time argument must be between 10 and 1800. For more info, run $ python3 display.py --help' )
+            exit()
+
+
+        self.setSymbols()
+
+        print(Color('{autoyellow}benafleck{/autoyellow}')) # lol ;)
+@ -69,7 +77,7 @@ class MphInfo:
+
+    def displayNonStop(self):
+        while True:
+            time.sleep(120)
+            time.sleep(self.reload_time_)
+            self.clearLastLine()
+            self.printDotInfo(str(Color(self.time_str_)))
+            self.getBalances()
+@ -357,7 +365,7 @@ class MphInfo:
+        }
+
+def main():
+    m = MphInfo(args.a, args.i, args.c, args.f, args.d)
+    m = MphInfo(args.a, args.i, args.c, args.f, args.d, args.r)
+
+if __name__ == '__main__':
+    main()
+@ -1,7 +1,7 @@
+## Screenshot
+Here is screenshot of info when running once:
+Here is screenshot of output when quiting from continuous one:
+
+![Screenshot of info when running once](https://user-images.githubusercontent.com/9158844/36348577-7e96893a-1483-11e8-970f-f35df4ae71a0.png)
+![Screenshot of info when running once](https://user-images.githubusercontent.com/9158844/36638403-2b31a66c-1a05-11e8-9d1d-ddf24f1a187e.png)
+
+## Usage
+
+@ -21,36 +21,46 @@ $ cd ~ && git clone https://github.com/cosmicog/miningpoolhub_info
+
+Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&action=edit) page and copy your api key, and paste it into `api_key.txt` file in this repository with your favourite editor.
+
+Replace your wallet address, user id, and favourite local currency(**EUR**, **GBP**, **JPY** etc. (**TRY below**)) to `display.sh` file:
+```
+#!/bin/bash
+python3 display.py -a PASTE_YOUR_API_KEY_HERE -f TRY -i PASTE_YOUR_ID_HERE -d PLACE_YOUR_COIN
+```
+And run the single one by:
+
+```bash
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE
+$ ./display.sh
+```
+
+Or run with your extra favourite currency, for example **EUR**, **GBP**, **JPY** etc. (**TRY below**):
+Or run continuous one by (**Don't forget to edit file first**):
+
+```bash
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE -f TRY
+$ ./display_continuously.sh
+```
+
+Or continuous one:
+
+```bash
+Coming soon...
+```
+Here is all options:
+```bash
+```
+$ python3 display_once.py --help
+usage: display_once.py [-h] -a api_key [-i id] [-c crypto_currency]
+                       [-f fiat_currency]
+usage: display.py [-h] -a api_key [-i id] [-c crypto_currency]
+                  [-f fiat_currency] [-n non_stop] [-d dashboard_coin]
+                  [-r reload_time]
+
+MINING POOL HUB Information Gatherer 2018 Orhan Gazi Hafif WTFPL Licence
+
+optional arguments:
+  -h, --help          show this help message and exit
+  -a api_key          API KEY from 'Edit Account' page
+  -a api_key          API KEY from 'Edit Account' page.
+  -i id               USER ID from 'Edit Account' page
+  -c crypto_currency  Which exchange currency to display total in (default
+                      BTC)
+                      BTC).
+  -f fiat_currency    Not needed, extra column for displaying other fiat
+                      currency total (default TRY)
+                      currency total.
+  -n non_stop         Not needed, if equals 'YES', run the application
+                      continuously, default, in every 2 minutes.
+  -d dashboard_coin   For displaying that coin's dashboard info, name must be
+                      same at website, for example, for
+                      zcash.miningpoolhub.org, it must be zcash.
+  -r reload_time      Reload time in seconds.
+```
+
+<br>
+@ -10,13 +10,15 @@ import argparse
+import requests
+import sys
+import signal
+from textwrap import wrap
+
+parser = argparse.ArgumentParser(description="MINING POOL HUB Information Gatherer")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC).')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total.')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously, updates in every minute')
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page\n')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page\n')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC).\n')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total.\n')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously, updates in every 2 minutes\n')
+parser.add_argument('-d', metavar='dashboard_coin', help='For displaying that coin\'s dashboard info, name must be same at website, for example, for zcash.miningpoolhub.org, it must be zcash.\n')
+args = parser.parse_args()
+
+def handler(signum, frame):
+@ -26,29 +28,39 @@ def handler(signum, frame):
+signal.signal(signal.SIGINT, handler)
+
+class MphInfo:
+    def __init__(self, api_key, id, currency, fiat_currency):
+    def __init__(self, api_key, id, currency, fiat_currency, mining_coin):
+        Windows.enable(auto_colors=True, reset_atexit=True)  # For just Windows
+        self.key_  = api_key
+        self.id_   = id
+        self.cur_  = currency
+        self.fcur_ = fiat_currency
+        self.coin_ = mining_coin
+        self.crypto_symbols_ = {}
+        self.setSymbols()
+
+        self.time_str_ = 'Hello world? Are you there???'
+        print(Color('{autoyellow}benafleck{/autoyellow}')) # lol ;)
+
+        self.time_str_ = 'Hello world, What time is it?'
+
+        self.dot_count_ = 0
+
+        self.other_cur = False
+        self.dashb_    = False
+        if args.f != None:
+            self.other_cur = True
+        if args.d != None:
+            self.dashb_ = True
+
+        self.balance_table_data_ = []
+        self.balances_table_data_ = []
+        self.balances_table_     = SingleTable([])
+
+        if self.dashb_:
+            self.dashb_table_data_ = []
+            self.dashb_table_      = SingleTable([])
+
+        self.printDotInfo('Getting values and converting to currencies')
+        self.getBalances()
+        self.printBalances()
+        self.printTables()
+
+        if args.n == 'YES':
+            self.displayNonStop()
+@ -61,7 +73,7 @@ class MphInfo:
+            self.clearLastLine()
+            self.printDotInfo(str(Color(self.time_str_)))
+            self.getBalances()
+            self.printBalances()
+            self.printTables()
+
+    def clearScreen(self):
+        print("\033[H\033[J")
+@ -70,25 +82,55 @@ class MphInfo:
+        sys.stdout.write("\033[F")  # back to previous line
+        #sys.stdout.write("\033[K")  # Clear to the end of line
+
+    def printBalances(self):
+    def strI0(self, value): # returns integer's str or '0.0'
+        try:
+            return str(int(value))
+        except:
+            return '0'
+
+    def strF0(self, value, perc=None): # returns float's str or '0.0'
+        try:
+            if perc == None:
+                return str(float(value))
+            else:
+                return str(perc % float(value))
+        except:
+            return '0.0'
+
+    def printTables(self):
+        self.clearScreen()
+        self.makeBalancesTable()
+        self.makeTables()
+        print(self.balances_table_.table)
+        self.time_str_ = time.strftime('Last update: {autoyellow}%d/%m/%Y{/autoyellow} {autocyan}%H:%M:%S {/autocyan}', datetime.datetime.now().timetuple())
+        if self.dashb_:
+            print(self.dashb_table_.table)
+        self.time_str_ = time.strftime('Last update: {autoyellow}%d/%m/%Y{/autoyellow} {autocyan}%H:%M:%S {/autocyan}',
+                                       datetime.datetime.now().timetuple())
+        print(Color(self.time_str_))
+
+    def makeBalancesTable(self):
+        self.balances_table_ = SingleTable(self.balance_table_data_)
+    def makeTables(self):
+        self.balances_table_ = SingleTable(self.balances_table_data_)
+        self.balances_table_.inner_heading_row_border = False
+        self.balances_table_.inner_row_border = True
+        self.balances_table_.justify_columns = {0: 'center', 1: 'center', 2: 'center', 3: 'center'}
+
+    def getMphJsonDict(self, method, coin=False, id=False):
+        if coin == False and id == False:
+            url="https://{}miningpoolhub.com/index.php?page=api&action={}&api_key={}&id={}".format("", method, self.key_, "")
+        if self.dashb_:
+            self.dashb_table_ = SingleTable(self.dashb_table_data_)
+            self.dashb_table_.inner_heading_row_border = False
+            self.dashb_table_.inner_row_border = True
+            self.dashb_table_.justify_columns = {0: 'center', 1: 'center'}
+
+    def getMphJsonDict(self, method, coin=None, id=None):
+        url = "https://{}miningpoolhub.com/index.php?page=api&action={}&api_key={}&id={}"
+
+        if coin == None and id == None:
+            url=url.format("", method, self.key_, "")
+
+        elif coin != None and id != None:
+            url=url.format(coin + '.', method, self.key_, id)
+
+        response = requests.get(url, timeout=10)
+        json_dict = response.json()
+            return json_dict #response
+        return json_dict
+
+    def getValueInOtherCurrency(self, curency, amount, other_currency, use_dot=None):
+        if curency.upper() == other_currency.upper(): # No need to convert
+@ -161,7 +203,7 @@ class MphInfo:
+                sign = '₺'
+            elif self.fcur_ == 'EUR':
+                sign = '€'
+            if self.fcur_ == 'AZN':
+            elif self.fcur_ == 'AZN':
+                sign = '₼'
+            elif self.fcur_ == 'GBP':
+                sign = '£'
+@ -171,6 +213,8 @@ class MphInfo:
+                sign = '$'
+            elif self.fcur_ == 'ALL':
+                sign = 'L'
+            else:
+                sign = self.fcur_
+
+        if self.cur_ == 'BTC':
+            fave_crypto_sign = 'Ƀ'
+@ -179,13 +223,12 @@ class MphInfo:
+        else:
+            fave_crypto_sign = self.cur_
+
+        json_dict = self.getMphJsonDict("getuserallbalances")
+        balances_dict  = self.getMphJsonDict("getuserallbalances")
+
+        coins = {}
+
+        total_fave_crypto = 0.0
+
+        for coin in json_dict["getuserallbalances"]["data"]:
+        for coin in balances_dict["getuserallbalances"]["data"]:
+            symbol = self.crypto_symbols_[coin["coin"]]
+            balance = sum([
+                coin["confirmed"],
+@ -207,22 +250,23 @@ class MphInfo:
+
+
+        total_usd = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, 'USD', True)
+        total_fiat = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, self.fcur_, True)
+
+        self.balance_table_data_ = []
+        self.balances_table_data_ = []
+
+        title =[Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}' + str("%.6f" % total_fave_crypto) + '{/autocyan}'),
+        title =[
+            Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}' + str("%.6f" % total_fave_crypto) + '{/autocyan}'),
+            Color('{autoyellow}Confirmed+{/autoyellow}\n{autoyellow}Unconfirmed{/autoyellow}'),
+            Color('{autoyellow}Exchange+{/autoyellow}\n{autoyellow}AE_All{/autoyellow}'),
+            Color('{autoyellow}Total{/autoyellow}\n${autocyan}' + str("%.2f" % total_usd) + '{/autocyan}'),
+        ]
+
+        if self.other_cur:
+            title.append(Color('{autoyellow}Total{/autoyellow}\n' + sign + '{autocyan}' + str("%.2f" % total_fiat) + '{/autocyan}'),)
+            total_fiat = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, self.fcur_, True)
+            title.append(Color('{autoyellow}Total{/autoyellow}\n' + sign + '{autocyan}' + str("%.2f" % total_fiat) + '{/autocyan}'))
+
+        self.balance_table_data_.append(title)
+        self.balances_table_data_.append(title)
+
+        for coin in json_dict["getuserallbalances"]["data"]:
+        for coin in balances_dict["getuserallbalances"]["data"]:
+            symbol = self.crypto_symbols_[coin["coin"]]
+
+            coin_line = [
+@ -235,7 +279,41 @@ class MphInfo:
+            if self.other_cur:
+                coin_line.append(Color(sign + '{autogreen}' + str("%.2f" % coins[symbol + '_fiat_my_cur']) + '{/autogreen}'))
+
+            self.balance_table_data_.append(coin_line)
+            self.balances_table_data_.append(coin_line)
+
+
+
+        if self.dashb_:
+            worker_dict    = self.getMphJsonDict("getuserworkers", self.coin_, self.id_)
+            dashboard_dict = self.getMphJsonDict("getdashboarddata", self.coin_, self.id_)
+
+            dashb_str = ''
+            symbol = self.crypto_symbols_[self.coin_]
+            last24 = float(dashboard_dict["getdashboarddata"]["data"]["recent_credits_24hours"]["amount"])
+            last24_usd = self.getValueInOtherCurrency(symbol, last24, 'USD', True)
+            last24_btc = self.getValueInOtherCurrency(symbol, last24, 'BTC', True)
+            dashb_str+= Color('{autoyellow}Last 24h {/autoyellow} {autocyan}' + str("%.8f" % last24) + '{/autocyan} ' + symbol + '\n')
+            dashb_str+= Color('{autoyellow}Est. 30d:{/autoyellow}\n'
+                              + 'Ƀ{autocyan}'  + str("%.8f" % (30 * last24_btc)) + '{/autocyan}\n'
+                              + '${autogreen}' + str("%.2f" % (30 * last24_usd)) + '{/autogreen}')
+
+            if self.other_cur:
+                last24_fiat = self.getValueInOtherCurrency(symbol, last24, self.fcur_, True)
+                dashb_str+= Color('\n' + sign + '{autogreen}' + str("%.2f" % (30 * last24_fiat)) + '{/autogreen}')
+
+            self.dashb_table_data_ = []
+            total_hashrate = 0.0
+            workers_str = ''
+            for worker in worker_dict["getuserworkers"]["data"]:
+                workers_str += Color('{autoyellow}' + worker["username"] + '{/autoyellow} {autocyan}' + str("%.3f" % float(self.strF0(worker["hashrate"]))) + '{/autocyan} KH/s\n')
+                total_hashrate += float(self.strF0(worker["hashrate"]))
+            workers_str += Color('\n{autoyellow}Total{/autoyellow} {autocyan}' + str("%.3f" % total_hashrate) + '{/autocyan} KH/s')
+
+            dashboard_info = [workers_str, dashb_str]
+            self.dashb_table_data_.append(dashboard_info)
+
+
+
+
+
+    def setSymbols(self):
+@ -279,7 +357,7 @@ class MphInfo:
+        }
+
+def main():
+    m = MphInfo(args.a, args.i, args.c, args.f)
+    m = MphInfo(args.a, args.i, args.c, args.f, args.d)
+
+if __name__ == '__main__':
+    main()
+@ -10,13 +10,15 @@ import argparse
+import requests
+import sys
+import signal
+from textwrap import wrap
+
+parser = argparse.ArgumentParser(description="MINING POOL HUB Information Gatherer")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC).')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total.')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously, updates in every minute')
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page\n')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page\n')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC).\n')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total.\n')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously, updates in every 2 minutes\n')
+parser.add_argument('-d', metavar='dashboard_coin', help='For displaying that coin\'s dashboard info, name must be same at website, for example, for zcash.miningpoolhub.org, it must be zcash.\n')
+args = parser.parse_args()
+
+def handler(signum, frame):
+@ -26,29 +28,39 @@ def handler(signum, frame):
+signal.signal(signal.SIGINT, handler)
+
+class MphInfo:
+    def __init__(self, api_key, id, currency, fiat_currency):
+    def __init__(self, api_key, id, currency, fiat_currency, mining_coin):
+        Windows.enable(auto_colors=True, reset_atexit=True)  # For just Windows
+        self.key_  = api_key
+        self.id_   = id
+        self.cur_  = currency
+        self.fcur_ = fiat_currency
+        self.coin_ = mining_coin
+        self.crypto_symbols_ = {}
+        self.setSymbols()
+
+        self.time_str_ = 'Hello world? Are you there???'
+        print(Color('{autoyellow}benafleck{/autoyellow}')) # lol ;)
+
+        self.time_str_ = 'Hello world, What time is it?'
+
+        self.dot_count_ = 0
+
+        self.other_cur = False
+        self.dashb_    = False
+        if args.f != None:
+            self.other_cur = True
+        if args.d != None:
+            self.dashb_ = True
+
+        self.balance_table_data_ = []
+        self.balances_table_data_ = []
+        self.balances_table_     = SingleTable([])
+
+        if self.dashb_:
+            self.dashb_table_data_ = []
+            self.dashb_table_      = SingleTable([])
+
+        self.printDotInfo('Getting values and converting to currencies')
+        self.getBalances()
+        self.printBalances()
+        self.printTables()
+
+        if args.n == 'YES':
+            self.displayNonStop()
+@ -61,7 +73,7 @@ class MphInfo:
+            self.clearLastLine()
+            self.printDotInfo(str(Color(self.time_str_)))
+            self.getBalances()
+            self.printBalances()
+            self.printTables()
+
+    def clearScreen(self):
+        print("\033[H\033[J")
+@ -70,25 +82,55 @@ class MphInfo:
+        sys.stdout.write("\033[F")  # back to previous line
+        #sys.stdout.write("\033[K")  # Clear to the end of line
+
+    def printBalances(self):
+    def strI0(self, value): # returns integer's str or '0.0'
+        try:
+            return str(int(value))
+        except:
+            return '0'
+
+    def strF0(self, value, perc=None): # returns float's str or '0.0'
+        try:
+            if perc == None:
+                return str(float(value))
+            else:
+                return str(perc % float(value))
+        except:
+            return '0.0'
+
+    def printTables(self):
+        self.clearScreen()
+        self.makeBalancesTable()
+        self.makeTables()
+        print(self.balances_table_.table)
+        self.time_str_ = time.strftime('Last update: {autoyellow}%d/%m/%Y{/autoyellow} {autocyan}%H:%M:%S {/autocyan}', datetime.datetime.now().timetuple())
+        if self.dashb_:
+            print(self.dashb_table_.table)
+        self.time_str_ = time.strftime('Last update: {autoyellow}%d/%m/%Y{/autoyellow} {autocyan}%H:%M:%S {/autocyan}',
+                                       datetime.datetime.now().timetuple())
+        print(Color(self.time_str_))
+
+    def makeBalancesTable(self):
+        self.balances_table_ = SingleTable(self.balance_table_data_)
+    def makeTables(self):
+        self.balances_table_ = SingleTable(self.balances_table_data_)
+        self.balances_table_.inner_heading_row_border = False
+        self.balances_table_.inner_row_border = True
+        self.balances_table_.justify_columns = {0: 'center', 1: 'center', 2: 'center', 3: 'center'}
+
+    def getMphJsonDict(self, method, coin=False, id=False):
+        if coin == False and id == False:
+            url="https://{}miningpoolhub.com/index.php?page=api&action={}&api_key={}&id={}".format("", method, self.key_, "")
+        if self.dashb_:
+            self.dashb_table_ = SingleTable(self.dashb_table_data_)
+            self.dashb_table_.inner_heading_row_border = False
+            self.dashb_table_.inner_row_border = True
+            self.dashb_table_.justify_columns = {0: 'center', 1: 'center'}
+
+    def getMphJsonDict(self, method, coin=None, id=None):
+        url = "https://{}miningpoolhub.com/index.php?page=api&action={}&api_key={}&id={}"
+
+        if coin == None and id == None:
+            url=url.format("", method, self.key_, "")
+
+        elif coin != None and id != None:
+            url=url.format(coin + '.', method, self.key_, id)
+
+        response = requests.get(url, timeout=10)
+        json_dict = response.json()
+            return json_dict #response
+        return json_dict
+
+    def getValueInOtherCurrency(self, curency, amount, other_currency, use_dot=None):
+        if curency.upper() == other_currency.upper(): # No need to convert
+@ -161,7 +203,7 @@ class MphInfo:
+                sign = '₺'
+            elif self.fcur_ == 'EUR':
+                sign = '€'
+            if self.fcur_ == 'AZN':
+            elif self.fcur_ == 'AZN':
+                sign = '₼'
+            elif self.fcur_ == 'GBP':
+                sign = '£'
+@ -171,6 +213,8 @@ class MphInfo:
+                sign = '$'
+            elif self.fcur_ == 'ALL':
+                sign = 'L'
+            else:
+                sign = self.fcur_
+
+        if self.cur_ == 'BTC':
+            fave_crypto_sign = 'Ƀ'
+@ -179,13 +223,12 @@ class MphInfo:
+        else:
+            fave_crypto_sign = self.cur_
+
+        json_dict = self.getMphJsonDict("getuserallbalances")
+        balances_dict  = self.getMphJsonDict("getuserallbalances")
+
+        coins = {}
+
+        total_fave_crypto = 0.0
+
+        for coin in json_dict["getuserallbalances"]["data"]:
+        for coin in balances_dict["getuserallbalances"]["data"]:
+            symbol = self.crypto_symbols_[coin["coin"]]
+            balance = sum([
+                coin["confirmed"],
+@ -207,22 +250,23 @@ class MphInfo:
+
+
+        total_usd = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, 'USD', True)
+        total_fiat = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, self.fcur_, True)
+
+        self.balance_table_data_ = []
+        self.balances_table_data_ = []
+
+        title =[Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}' + str("%.6f" % total_fave_crypto) + '{/autocyan}'),
+        title =[
+            Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}' + str("%.6f" % total_fave_crypto) + '{/autocyan}'),
+            Color('{autoyellow}Confirmed+{/autoyellow}\n{autoyellow}Unconfirmed{/autoyellow}'),
+            Color('{autoyellow}Exchange+{/autoyellow}\n{autoyellow}AE_All{/autoyellow}'),
+            Color('{autoyellow}Total{/autoyellow}\n${autocyan}' + str("%.2f" % total_usd) + '{/autocyan}'),
+        ]
+
+        if self.other_cur:
+            title.append(Color('{autoyellow}Total{/autoyellow}\n' + sign + '{autocyan}' + str("%.2f" % total_fiat) + '{/autocyan}'),)
+            total_fiat = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, self.fcur_, True)
+            title.append(Color('{autoyellow}Total{/autoyellow}\n' + sign + '{autocyan}' + str("%.2f" % total_fiat) + '{/autocyan}'))
+
+        self.balance_table_data_.append(title)
+        self.balances_table_data_.append(title)
+
+        for coin in json_dict["getuserallbalances"]["data"]:
+        for coin in balances_dict["getuserallbalances"]["data"]:
+            symbol = self.crypto_symbols_[coin["coin"]]
+
+            coin_line = [
+@ -235,7 +279,41 @@ class MphInfo:
+            if self.other_cur:
+                coin_line.append(Color(sign + '{autogreen}' + str("%.2f" % coins[symbol + '_fiat_my_cur']) + '{/autogreen}'))
+
+            self.balance_table_data_.append(coin_line)
+            self.balances_table_data_.append(coin_line)
+
+
+
+        if self.dashb_:
+            worker_dict    = self.getMphJsonDict("getuserworkers", self.coin_, self.id_)
+            dashboard_dict = self.getMphJsonDict("getdashboarddata", self.coin_, self.id_)
+
+            dashb_str = ''
+            symbol = self.crypto_symbols_[self.coin_]
+            last24 = float(dashboard_dict["getdashboarddata"]["data"]["recent_credits_24hours"]["amount"])
+            last24_usd = self.getValueInOtherCurrency(symbol, last24, 'USD', True)
+            last24_btc = self.getValueInOtherCurrency(symbol, last24, 'BTC', True)
+            dashb_str+= Color('{autoyellow}Last 24h {/autoyellow} {autocyan}' + str("%.8f" % last24) + '{/autocyan} ' + symbol + '\n')
+            dashb_str+= Color('{autoyellow}Est. 30d:{/autoyellow}\n'
+                              + 'Ƀ{autocyan}'  + str("%.8f" % (30 * last24_btc)) + '{/autocyan}\n'
+                              + '${autogreen}' + str("%.2f" % (30 * last24_usd)) + '{/autogreen}')
+
+            if self.other_cur:
+                last24_fiat = self.getValueInOtherCurrency(symbol, last24, self.fcur_, True)
+                dashb_str+= Color('\n' + sign + '{autogreen}' + str("%.2f" % (30 * last24_fiat)) + '{/autogreen}')
+
+            self.dashb_table_data_ = []
+            total_hashrate = 0.0
+            workers_str = ''
+            for worker in worker_dict["getuserworkers"]["data"]:
+                workers_str += Color('{autoyellow}' + worker["username"] + '{/autoyellow} {autocyan}' + str("%.3f" % float(self.strF0(worker["hashrate"]))) + '{/autocyan} KH/s\n')
+                total_hashrate += float(self.strF0(worker["hashrate"]))
+            workers_str += Color('\n{autoyellow}Total{/autoyellow} {autocyan}' + str("%.3f" % total_hashrate) + '{/autocyan} KH/s')
+
+            dashboard_info = [workers_str, dashb_str]
+            self.dashb_table_data_.append(dashboard_info)
+
+
+
+
+
+    def setSymbols(self):
+@ -279,7 +357,7 @@ class MphInfo:
+        }
+
+def main():
+    m = MphInfo(args.a, args.i, args.c, args.f)
+    m = MphInfo(args.a, args.i, args.c, args.f, args.d)
+
+if __name__ == '__main__':
+    main()
+@ -57,7 +57,7 @@ class MphInfo:
+
+    def displayNonStop(self):
+        while True:
+            time.sleep(60)
+            time.sleep(120)
+            self.clearLastLine()
+            self.printDotInfo(str(Color(self.time_str_)))
+            self.getBalances()
+@ -1,2 +1,2 @@
+#!/bin/bash
+python3 display.py -a PASTE_YOUR_API_KEY_HERE -f TRY -i PASTE_YOUR_ID_HERE -n YES
+python3 display.py -a PASTE_YOUR_API_KEY_HERE -f TRY -i PASTE_YOUR_ID_HERE
+@ -9,18 +9,16 @@ from terminaltables import SingleTable
+import argparse
+import requests
+import sys
+import signal
+
+parser = argparse.ArgumentParser(description="MINING POOL HUB Information Gatherer")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC).')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total.')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously.')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously, updates in every minute')
+args = parser.parse_args()
+
+import signal
+import time
+
+def handler(signum, frame):
+    print (Color('\n{autogreen}Bye bye!{/autogreen}'))
+    exit()
+@ -59,7 +57,7 @@ class MphInfo:
+
+    def displayNonStop(self):
+        while True:
+            time.sleep(5)
+            time.sleep(60)
+            self.clearLastLine()
+            self.printDotInfo(str(Color(self.time_str_)))
+            self.getBalances()
+@ -57,24 +57,38 @@ usage: display_once.py [-h] -a api_key [-i id] [-c crypto_currency]
+
+### :shit: Windows 10
+
+_Coming soon._ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: 
+If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: 
+
+<br>
+
+## Donation :dollar: :euro: :pound: :yen:
+## Donations :dollar: :euro: :pound: :yen:
+
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="20" height="20"/>   Donate **Zcash** to this address:
+```python
+rp2diYfVtpbgEMyaoWnuaWgFCAkqCAEg28
+Donate <img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="15" height="15"/> **Zcash** to this address:
+```
+rp2diYfVtpbgEMyaoWnuaWgFCAkqCAEg28
+```
+![zcash](https://user-images.githubusercontent.com/9158844/36625316-3c14cba8-192e-11e8-9c2d-3855fda623b7.png)
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="60" height="60"/>
+---
+
+<br><br>
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="20" height="20"/>   Donate **Bitcoin** to this address:
+```cpp
+Donate <img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/> **Bitcoin** to this address:
+
+```
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs  
+```
+![bitcoin](https://user-images.githubusercontent.com/9158844/36625315-3bf470ec-192e-11e8-8dc4-e8ea15b00a6f.png)
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="60" height="60"/>
+---
+
+<br><br>
+
+Donate <img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="15" height="15"/> **Ethereum** to this address:
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="20" height="20"/>   Donate **Ethereum** to this address:
+```
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB
+```
+
+![ethereum](https://user-images.githubusercontent.com/9158844/36625314-3bd89dd6-192e-11e8-984d-a1e61c4a0ffa.png)
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="60" height="60"/> 
+---
+@ -3,20 +3,30 @@
+from __future__ import print_function
+
+import time
+
+import datetime
+from colorclass import Color, Windows
+from terminaltables import SingleTable
+import argparse
+import requests
+import sys
+
+parser = argparse.ArgumentParser(description="MINING\nPOOL\nHUB\nInformation Gatherer")
+parser = argparse.ArgumentParser(description="MINING POOL HUB Information Gatherer")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC)')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC).')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total.')
+parser.add_argument('-n', metavar='non_stop', help=' Not needed, if equals \'YES\', run the application continuously.')
+args = parser.parse_args()
+
+import signal
+import time
+
+def handler(signum, frame):
+    print (Color('\n{autogreen}Bye bye!{/autogreen}'))
+    exit()
+
+signal.signal(signal.SIGINT, handler)
+
+class MphInfo:
+    def __init__(self, api_key, id, currency, fiat_currency):
+        Windows.enable(auto_colors=True, reset_atexit=True)  # For just Windows
+@ -27,20 +37,53 @@ class MphInfo:
+        self.crypto_symbols_ = {}
+        self.setSymbols()
+
+        self.time_str_ = 'Hello world? Are you there???'
+
+        self.dot_count_ = 0
+
+        self.other_cur = False
+        if args.f != None:
+            self.other_cur = True
+
+        self.balance_table_data_ = []
+        self.balances_table_ = SingleTable([])
+
+        # Print Balances
+        self.printDotInfo('Getting values and converting to currencies')
+        self.getBalances()
+        self.printBalances()
+
+        if args.n == 'YES':
+            self.displayNonStop()
+        else:
+            exit()
+
+    def displayNonStop(self):
+        while True:
+            time.sleep(5)
+            self.clearLastLine()
+            self.printDotInfo(str(Color(self.time_str_)))
+            self.getBalances()
+            self.printBalances()
+
+    def clearScreen(self):
+        print("\033[H\033[J")
+
+    def clearLastLine(self):
+        sys.stdout.write("\033[F")  # back to previous line
+        #sys.stdout.write("\033[K")  # Clear to the end of line
+
+    def printBalances(self):
+        print()
+        self.clearScreen()
+        self.makeBalancesTable()
+        print(self.balances_table_.table)
+        self.time_str_ = time.strftime('Last update: {autoyellow}%d/%m/%Y{/autoyellow} {autocyan}%H:%M:%S {/autocyan}', datetime.datetime.now().timetuple())
+        print(Color(self.time_str_))
+
+    def makeBalancesTable(self):
+        self.balances_table_ = SingleTable(self.balance_table_data_)
+        self.balances_table_.inner_heading_row_border = False
+        self.balances_table_.inner_row_border = True
+        self.balances_table_.justify_columns = {0: 'center', 1: 'center', 2: 'center', 3: 'center'}
+
+    def getMphJsonDict(self, method, coin=False, id=False):
+        if coin == False and id == False:
+@ -62,17 +105,58 @@ class MphInfo:
+        return value
+
+    def printDotInfo(self, info=None):
+        """ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ """
+        if info == None:
+            sys.stdout.write('.')
+            if self.dot_count_ == 0:
+                sys.stdout.write('\b\b\b ⠙ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            elif self.dot_count_ == 1:
+                sys.stdout.write('\b\b\b ⠹ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            elif self.dot_count_ == 2:
+                sys.stdout.write('\b\b\b ⠹ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            elif self.dot_count_ == 3:
+                sys.stdout.write('\b\b\b ⠸ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            elif self.dot_count_ == 4:
+                sys.stdout.write('\b\b\b ⠼ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            elif self.dot_count_ == 5:
+                sys.stdout.write('\b\b\b ⠴ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            elif self.dot_count_ == 6:
+                sys.stdout.write('\b\b\b ⠦ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            elif self.dot_count_ == 7:
+                sys.stdout.write('\b\b\b ⠧ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            elif self.dot_count_ == 8:
+                sys.stdout.write('\b\b\b ⠇ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            elif self.dot_count_ == 9:
+                sys.stdout.write('\b\b\b ⠏ \b ')
+                sys.stdout.flush()
+                self.dot_count_ += 1
+            else:
+            sys.stdout.write(info)
+                sys.stdout.write('\b\b\b ⠋ \b ')
+                sys.stdout.flush()
+                self.dot_count_ = 0
+        else:
+            sys.stdout.write(info + ' ⠋ \b ')
+            sys.stdout.flush()
+            self.dot_count_ = 0
+
+    def getBalances(self):
+
+        self.printDotInfo('Getting values and converting to other currencies...')
+
+        sign = ""
+        if self.other_cur:
+            if self.fcur_ == 'TRY':
+@ -97,7 +181,6 @@ class MphInfo:
+        else:
+            fave_crypto_sign = self.cur_
+
+
+        json_dict = self.getMphJsonDict("getuserallbalances")
+
+        coins = {}
+@ -127,7 +210,8 @@ class MphInfo:
+
+        total_usd = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, 'USD', True)
+        total_fiat = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, self.fcur_, True)
+        table_data = []
+
+        self.balance_table_data_ = []
+
+        title =[Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}' + str("%.6f" % total_fave_crypto) + '{/autocyan}'),
+                Color('{autoyellow}Confirmed+{/autoyellow}\n{autoyellow}Unconfirmed{/autoyellow}'),
+@ -138,7 +222,7 @@ class MphInfo:
+        if self.other_cur:
+            title.append(Color('{autoyellow}Total{/autoyellow}\n' + sign + '{autocyan}' + str("%.2f" % total_fiat) + '{/autocyan}'),)
+
+        table_data.append(title)
+        self.balance_table_data_.append(title)
+
+        for coin in json_dict["getuserallbalances"]["data"]:
+            symbol = self.crypto_symbols_[coin["coin"]]
+@ -153,14 +237,9 @@ class MphInfo:
+            if self.other_cur:
+                coin_line.append(Color(sign + '{autogreen}' + str("%.2f" % coins[symbol + '_fiat_my_cur']) + '{/autogreen}'))
+
+            table_data.append(coin_line)
+            self.balance_table_data_.append(coin_line)
+
+        self.balances_table_ = SingleTable(table_data)
+        self.balances_table_.inner_heading_row_border = False
+        self.balances_table_.inner_row_border = True
+        self.balances_table_.justify_columns = {0: 'center', 1: 'center', 2: 'center'}
+
+    # I just don't wanna see this lazy code in constructor lol
+    def setSymbols(self):
+        self.crypto_symbols_ = {
+            "adzcoin": "ADZ",
+@ -0,0 +1,2 @@
+#!/bin/bash
+python3 display.py -a PASTE_YOUR_API_KEY_HERE -f TRY -i PASTE_YOUR_ID_HERE -n YES
+@ -57,24 +57,38 @@ usage: display_once.py [-h] -a api_key [-i id] [-c crypto_currency]
+
+### :shit: Windows 10
+
+_Coming soon._ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: 
+If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: 
+
+<br>
+
+## Donation :dollar: :euro: :pound: :yen:
+## Donations :dollar: :euro: :pound: :yen:
+
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="20" height="20"/>   Donate **Zcash** to this address:
+```python
+rp2diYfVtpbgEMyaoWnuaWgFCAkqCAEg28
+Donate <img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="15" height="15"/> **Zcash** to this address:
+```
+rp2diYfVtpbgEMyaoWnuaWgFCAkqCAEg28
+```
+![zcash](https://user-images.githubusercontent.com/9158844/36625316-3c14cba8-192e-11e8-9c2d-3855fda623b7.png)
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="60" height="60"/>
+---
+
+<br><br>
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="20" height="20"/>   Donate **Bitcoin** to this address:
+```cpp
+Donate <img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/> **Bitcoin** to this address:
+
+```
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs
+```
+![bitcoin](https://user-images.githubusercontent.com/9158844/36625315-3bf470ec-192e-11e8-8dc4-e8ea15b00a6f.png)
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="60" height="60"/>
+---
+
+<br><br>
+
+Donate <img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="15" height="15"/> **Ethereum** to this address:
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="20" height="20"/>   Donate **Ethereum** to this address:
+```
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB 
+```
+
+![ethereum](https://user-images.githubusercontent.com/9158844/36625314-3bd89dd6-192e-11e8-984d-a1e61c4a0ffa.png)
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="60" height="60"/> 
+---
+@ -65,7 +65,7 @@ _Coming soon._ If you aren't python developer, you can start by [this](http://lm
+
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="20" height="20"/>   Donate **Zcash** to this address:
+```python
+t1aPDUh7PJLwCfsiiHPtNf6MfiYpp9ckA9x
+rp2diYfVtpbgEMyaoWnuaWgFCAkqCAEg28
+```
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="20" height="20"/>   Donate **Bitcoin** to this address:
+@ -1,15 +1,3 @@
+## Donation :dollar: :euro: :pound: :yen:
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/>  Donate **Bitcoin** to this address:
+```cpp
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs 
+```
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="15" height="15"/>  Donate **Ethereum** to this address:
+```cpp
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB
+```
+
+## Screenshot
+Here is screenshot of info when running once:
+
+@ -71,5 +59,22 @@ usage: display_once.py [-h] -a api_key [-i id] [-c crypto_currency]
+
+_Coming soon._ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: 
+
+<br>
+
+## Donation :dollar: :euro: :pound: :yen:
+
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="20" height="20"/>   Donate **Zcash** to this address:
+```python
+t1aPDUh7PJLwCfsiiHPtNf6MfiYpp9ckA9x
+```
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="20" height="20"/>   Donate **Bitcoin** to this address:
+```cpp
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs
+```
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="20" height="20"/>   Donate **Ethereum** to this address:
+```
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB
+```
+@ -14,7 +14,7 @@ parser = argparse.ArgumentParser(description="MINING\nPOOL\nHUB\nInformation Gat
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC)')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total (default TRY)')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total')
+args = parser.parse_args()
+
+class MphInfo:
+@ -73,11 +73,36 @@ class MphInfo:
+
+        self.printDotInfo('Getting values and converting to other currencies...')
+
+        sign = ""
+        if self.other_cur:
+            if self.fcur_ == 'TRY':
+                sign = '₺'
+            elif self.fcur_ == 'EUR':
+                sign = '€'
+            if self.fcur_ == 'AZN':
+                sign = '₼'
+            elif self.fcur_ == 'GBP':
+                sign = '£'
+            elif self.fcur_ == 'CNY' or self.fcur_ == 'JPY' :
+                sign = '¥'
+            elif self.fcur_ == 'AUD':
+                sign = '$'
+            elif self.fcur_ == 'ALL':
+                sign = 'L'
+
+        if self.cur_ == 'BTC':
+            fave_crypto_sign = 'Ƀ'
+        elif self.cur_ == 'ETH':
+            fave_crypto_sign = '⧫'
+        else:
+            fave_crypto_sign = self.cur_
+
+
+        json_dict = self.getMphJsonDict("getuserallbalances")
+
+        coins = {}
+
+        total_fav_crypto = 0.0
+        total_fave_crypto = 0.0
+
+        for coin in json_dict["getuserallbalances"]["data"]:
+            symbol = self.crypto_symbols_[coin["coin"]]
+@ -94,28 +119,24 @@ class MphInfo:
+            coins[symbol + "_exchange"] = balance_ex
+            coin_total_balance = balance + balance_ex
+
+            total_fav_crypto += self.getValueInOtherCurrency(symbol, coin_total_balance, self.cur_, True)
+            total_fave_crypto += self.getValueInOtherCurrency(symbol, coin_total_balance, self.cur_, True)
+            coins[symbol + "_fiat_usd"] = self.getValueInOtherCurrency(symbol, balance, 'USD', True)
+            if self.other_cur:
+                coins[symbol + "_fiat_my_cur"] = self.getValueInOtherCurrency(symbol, balance, self.fcur_, True)
+
+
+        total_usd = self.getValueInOtherCurrency(self.cur_, total_fav_crypto, 'USD', True)
+        total_usd = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, 'USD', True)
+        total_fiat = self.getValueInOtherCurrency(self.cur_, total_fave_crypto, self.fcur_, True)
+        table_data = []
+
+        fave_crypto_sign = 'Ƀ'
+
+        if self.cur_ != 'BTC':
+            fave_crypto_sign = self.cur_
+
+        title =[Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}' + str("%.6f" % total_fav_crypto) + '{/autocyan}\n${autogreen}' + str("%.6f" % total_usd) + '{/autogreen}'),
+                Color('{autoyellow}Wallet{/autoyellow}\n{autoyellow}Confirmed+{/autoyellow}\n{autoyellow}Unconfirmed{/autoyellow}'),
+                Color('{autoyellow}Exchange+{/autoyellow}\n{autoyellow}AE_Conf+{/autoyellow}\n{autoyellow}AE_Unconf{/autoyellow}'),
+                Color('{autoyellow}Total{/autoyellow}\n{autoyellow}USD{/autoyellow}\n{autoyellow}Value{/autoyellow}'),
+        title =[Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}' + str("%.6f" % total_fave_crypto) + '{/autocyan}'),
+                Color('{autoyellow}Confirmed+{/autoyellow}\n{autoyellow}Unconfirmed{/autoyellow}'),
+                Color('{autoyellow}Exchange+{/autoyellow}\n{autoyellow}AE_All{/autoyellow}'),
+                Color('{autoyellow}Total{/autoyellow}\n${autocyan}' + str("%.2f" % total_usd) + '{/autocyan}'),
+             ]
+
+        if self.other_cur:
+            title.append(Color('{autoyellow}Total{/autoyellow}\n{autoyellow}' + self.fcur_ + '{/autoyellow}\n{autoyellow}Value{/autoyellow}'))
+            title.append(Color('{autoyellow}Total{/autoyellow}\n' + sign + '{autocyan}' + str("%.2f" % total_fiat) + '{/autocyan}'),)
+
+        table_data.append(title)
+
+@ -124,28 +145,12 @@ class MphInfo:
+
+            coin_line = [
+                    Color('{autocyan}' + coin["coin"].title() + '{/autocyan}'),
+                    Color( str(coins[symbol + '_balance'])),
+                    Color('{autored}' + str(coins[symbol + '_exchange']) + '{/autored}'),
+                    Color( str("%.9f" % coins[symbol + '_balance'])),
+                    Color('{autored}' + str("%.6f" % coins[symbol + '_exchange']) + '{/autored}'),
+                    Color('${autogreen}' + str("%.2f" % coins[symbol + '_fiat_usd']) + '{/autogreen}'),
+                ]
+
+            if self.other_cur:
+                sign = ""
+                if self.fcur_ == 'TRY':
+                    sign = '₺'
+                elif self.fcur_ == 'EUR':
+                    sign = '€'
+                if self.fcur_ == 'AZN':
+                    sign = '₼'
+                elif self.fcur_ == 'GBP':
+                    sign = '£'
+                elif self.fcur_ == 'CNY' or self.fcur_ == 'JPY' :
+                    sign = '¥'
+                elif self.fcur_ == 'AUD':
+                    sign = '$'
+                elif self.fcur_ == 'ALL':
+                    sign = 'L'
+
+                coin_line.append(Color(sign + '{autogreen}' + str("%.2f" % coins[symbol + '_fiat_my_cur']) + '{/autogreen}'))
+
+            table_data.append(coin_line)
+@ -59,6 +59,8 @@ usage: display_once.py [-h] -a api_key [-i id] [-c crypto_currency]
+
+_Coming soon._ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: 
+
+<br>
+
+## Donation :dollar: :euro: :pound: :yen:
+
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="20" height="20"/>   Donate **Zcash** to this address:
+@ -1,15 +1,3 @@
+## Donation :dollar: :euro: :pound: :yen:
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/>  Donate **Bitcoin** to this address:
+```cpp
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs  
+```
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="15" height="15"/>  Donate **Ethereum** to this address:
+```cpp
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB 
+```
+
+## Screenshot
+Here is screenshot of info when running once:
+
+@ -71,5 +59,20 @@ usage: display_once.py [-h] -a api_key [-i id] [-c crypto_currency]
+
+_Coming soon._ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: 
+
+## Donation :dollar: :euro: :pound: :yen:
+
+<img src="https://raw.githubusercontent.com/zcash/logos/master/yellow-zcash-logo.png" width="20" height="20"/>   Donate **Zcash** to this address:
+```python
+t1aPDUh7PJLwCfsiiHPtNf6MfiYpp9ckA9x
+```
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="20" height="20"/>   Donate **Bitcoin** to this address:
+```cpp
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs   
+```
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="20" height="20"/>   Donate **Ethereum** to this address:
+```
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB 
+```
+@ -100,7 +100,7 @@ class MphInfo:
+                coins[symbol + "_fiat_my_cur"] = self.getValueInOtherCurrency(symbol, balance, self.fcur_, True)
+
+
+        total_usd = self.getValueInOtherCurrency('BTC', total_fav_crypto, 'USD', True)
+        total_usd = self.getValueInOtherCurrency(self.cur_, total_fav_crypto, 'USD', True)
+        table_data = []
+
+        fave_crypto_sign = 'Ƀ'
+@ -34,8 +34,14 @@ class MphInfo:
+        self.balances_table_ = SingleTable([])
+
+        # Print Balances
+        self.getBalances()
+        self.printBalances()
+
+
+    def printBalances(self):
+        print()
+        print(self.balances_table_.table)
+
+    def getMphJsonDict(self, method, coin=False, id=False):
+        if coin == False and id == False:
+            url="https://{}miningpoolhub.com/index.php?page=api&action={}&api_key={}&id={}".format("", method, self.key_, "")
+@ -63,7 +69,7 @@ class MphInfo:
+            sys.stdout.write(info)
+            sys.stdout.flush()
+
+    def printBalances(self):
+    def getBalances(self):
+
+        self.printDotInfo('Getting values and converting to other currencies...')
+
+@ -148,8 +154,6 @@ class MphInfo:
+        self.balances_table_.inner_heading_row_border = False
+        self.balances_table_.inner_row_border = True
+        self.balances_table_.justify_columns = {0: 'center', 1: 'center', 2: 'center'}
+        print()
+        print (self.balances_table_.table)
+
+    # I just don't wanna see this lazy code in constructor lol
+    def setSymbols(self):
+@ -39,7 +39,7 @@ And run the single one by:
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE
+```
+
+Or run with your extra favourite currency (**TRY below**):
+Or run with your extra favourite currency, for example **EUR**, **GBP**, **JPY** etc. (**TRY below**):
+
+```bash
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE -f TRY
+@ -39,7 +39,7 @@ And run the single one by:
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE
+```
+
+Or run with your extra favourite currency (TRY below):
+Or run with your extra favourite currency (**TRY below**):
+
+```bash
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE -f TRY
+
+@ -71,7 +71,7 @@ class MphInfo:
+
+        coins = {}
+
+        total_btc = 0.0
+        total_fav_crypto = 0.0
+
+        for coin in json_dict["getuserallbalances"]["data"]:
+            symbol = self.crypto_symbols_[coin["coin"]]
+@ -88,16 +88,21 @@ class MphInfo:
+            coins[symbol + "_exchange"] = balance_ex
+            coin_total_balance = balance + balance_ex
+
+            total_btc += self.getValueInOtherCurrency(symbol, coin_total_balance, 'BTC', True)
+            total_fav_crypto += self.getValueInOtherCurrency(symbol, coin_total_balance, self.cur_, True)
+            coins[symbol + "_fiat_usd"] = self.getValueInOtherCurrency(symbol, balance, 'USD', True)
+            if self.other_cur:
+                coins[symbol + "_fiat_my_cur"] = self.getValueInOtherCurrency(symbol, balance, self.fcur_, True)
+
+
+        total_usd = self.getValueInOtherCurrency('BTC', total_btc, 'USD', True)
+        total_usd = self.getValueInOtherCurrency('BTC', total_fav_crypto, 'USD', True)
+        table_data = []
+
+        title =[Color('{autoyellow}Total Balance{/autoyellow}\nɃ{autocyan}' + str("%.6f" % total_btc) + '{/autocyan}\n${autogreen}' + str("%.6f" % total_usd) + '{/autogreen}'),
+        fave_crypto_sign = 'Ƀ'
+
+        if self.cur_ != 'BTC':
+            fave_crypto_sign = self.cur_
+
+        title =[Color('{autoyellow}Total Balance{/autoyellow}\n'+ fave_crypto_sign +'{autocyan}' + str("%.6f" % total_fav_crypto) + '{/autocyan}\n${autogreen}' + str("%.6f" % total_usd) + '{/autogreen}'),
+                Color('{autoyellow}Wallet{/autoyellow}\n{autoyellow}Confirmed+{/autoyellow}\n{autoyellow}Unconfirmed{/autoyellow}'),
+                Color('{autoyellow}Exchange+{/autoyellow}\n{autoyellow}AE_Conf+{/autoyellow}\n{autoyellow}AE_Unconf{/autoyellow}'),
+                Color('{autoyellow}Total{/autoyellow}\n{autoyellow}USD{/autoyellow}\n{autoyellow}Value{/autoyellow}'),
+@ -39,7 +39,7 @@ And run the single one by:
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE
+```
+
+Or run with your extra favourite currency (TRY below):
+Or run with your extra favourite currency (**TRY below**):
+
+```bash
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE -f TRY
+@ -50,6 +50,20 @@ Or continuous one:
+```bash
+Coming soon...
+```
+Here is all options:
+```bash
+$ python3 display_once.py --help
+usage: display_once.py [-h] -a api_key [-i id] [-c crypto_currency]
+                       [-f fiat_currency]
+
+  -h, --help          show this help message and exit
+  -a api_key          API KEY from 'Edit Account' page
+  -i id               USER ID from 'Edit Account' page
+  -c crypto_currency  Which exchange currency to display total in (default
+                      BTC)
+  -f fiat_currency    Not needed, extra column for displaying other fiat
+                      currency total (default TRY)
+```
+
+<br> 
+
+@ -10,6 +10,11 @@
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB 
+```
+
+## Screenshot
+Here is screenshot of info when running once:
+
+![Screenshot of info when running once](https://user-images.githubusercontent.com/9158844/36348577-7e96893a-1483-11e8-970f-f35df4ae71a0.png)
+
+## Usage
+
+### :penguin: Ubuntu 16.04
+@ -14,7 +14,7 @@
+
+### :penguin: Ubuntu 16.04
+
+First, we need to install its dependency, (if you don't have pip3, do `sudo apt install python3-pip`):
+First, we need to install its dependencies, (if you don't have pip3, do `sudo apt install python3-pip`):
+
+```bash
+sudo -H pip3 install colorclass terminaltables
+@ -14,10 +14,10 @@
+
+### :penguin: Ubuntu 16.04
+
+First, we need to install its dependency, (if you don't have pip, do `sudo apt -y install python3-pip`):
+First, we need to install its dependency, (if you don't have pip3, do `sudo apt install python3-pip`):
+
+```bash
+sudo -H pip3 install dashing
+sudo -H pip3 install colorclass terminaltables
+```
+
+Clone this repository to your home directory or wherever you want:
+@ -28,16 +28,22 @@ $ cd ~ && git clone https://github.com/cosmicog/miningpoolhub_info
+
+Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&action=edit) page and copy your api key, and paste it into `api_key.txt` file in this repository with your favourite editor.
+
+And run the continuous one by:
+And run the single one by:
+
+```bash
+$ python display_contiuously.py
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE
+```
+
+Or just once:
+Or run with your extra favourite currency (TRY below):
+
+```bash
+$ python display_once.py
+$ python3 display_once.py -a PASTE_YOUR_API_KEY_HERE -f TRY
+```
+
+Or continuous one:
+
+```bash
+Coming soon...
+```
+
+<br> 
+@ -1,18 +1,20 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import time
+
+from colorclass import Color, Windows
+from terminaltables import SingleTable
+import requests
+import argparse
+import json
+import time
+import requests
+import sys
+
+parser = argparse.ArgumentParser(description="MINING\nPOOL\nHUB\nInformation Gatherer")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page')
+parser.add_argument('-c', metavar='currency', default='btc', help='Which exchange currency to display total in (default btc)')
+parser.add_argument('-f', metavar='fiat_currency', default='usd', help='Which fiat currency to display total in')
+parser.add_argument('-c', metavar='crypto_currency', default='BTC', help='Which exchange currency to display total in (default BTC)')
+parser.add_argument('-f', metavar='fiat_currency', help=' Not needed, extra column for displaying other fiat currency total (default TRY)')
+args = parser.parse_args()
+
+class MphInfo:
+@ -22,71 +24,131 @@ class MphInfo:
+        self.id_      = id
+        self.cur_     = currency
+        self.fcur_    = fiat_currency
+        self.symbols_ = {}
+        self.crypto_symbols_ = {}
+        self.setSymbols()
+
+        self.other_cur = False
+        if args.f != None:
+            self.other_cur = True
+
+        self.balances_table_ = SingleTable([])
+
+        # Print Balances
+        self.printBalances()
+
+    def getJson(self, method, coin=False, id=False):
+    def getMphJsonDict(self, method, coin=False, id=False):
+        if coin == False and id == False:
+            url="https://{}miningpoolhub.com/index.php?page=api&action={}&api_key={}&id={}".format("", method, self.key_, "")
+            raw_response = requests.get(url).text
+            response = json.loads(raw_response)
+            return response
+            response = requests.get(url, timeout=10)
+            json_dict = response.json()
+            return json_dict #response
+
+    def getValueInOurCoin(self, symbol, amount, compare=args.c):
+        if symbol.upper() == compare.upper():
+    def getValueInOtherCurrency(self, curency, amount, other_currency, use_dot=None):
+        if curency.upper() == other_currency.upper(): # No need to convert
+            return amount
+        url = "https://api.cryptonator.com/api/ticker/{}-{}".format(symbol.lower(), compare.lower())
+        raw_response = requests.get(url).text
+        response = json.loads(raw_response)
+        price = response["ticker"]["price"]
+        url = "https://min-api.cryptocompare.com/data/price?fsym={}&tsyms={}".format(curency.upper(), other_currency.upper())
+        response = requests.get(url, timeout=10)
+        json_dict = response.json()
+        price = json_dict[other_currency.upper()]
+        value = float(price) * float(amount)
+        if use_dot != None:
+            self.printDotInfo()
+        return value
+
+    def printDotInfo(self, info=None):
+        if info == None:
+            sys.stdout.write('.')
+            sys.stdout.flush()
+        else:
+            sys.stdout.write(info)
+            sys.stdout.flush()
+
+    def printBalances(self):
+
+        response = self.getJson("getuserallbalances")
+        self.printDotInfo('Getting values and converting to other currencies...')
+
+        json_dict = self.getMphJsonDict("getuserallbalances")
+
+        coins = {}
+        for coin in response["getuserallbalances"]["data"]:
+            symbol = self.symbols_[coin["coin"]]
+
+        total_btc = 0.0
+
+        for coin in json_dict["getuserallbalances"]["data"]:
+            symbol = self.crypto_symbols_[coin["coin"]]
+            balance = sum([
+              coin["confirmed"],
+              coin["unconfirmed"],
+              coin["unconfirmed"]
+             ])
+            balance_ex = sum([
+              coin["ae_confirmed"],
+              coin["ae_unconfirmed"],
+              coin["exchange"]
+             ])
+            coins[symbol] = balance
+            coins[symbol + "_balance"] = balance
+            coins[symbol + "_exchange"] = balance_ex
+            coin_total_balance = balance + balance_ex
+
+            total_btc += self.getValueInOtherCurrency(symbol, coin_total_balance, 'BTC', True)
+            coins[symbol + "_fiat_usd"] = self.getValueInOtherCurrency(symbol, balance, 'USD', True)
+            if self.other_cur:
+                coins[symbol + "_fiat_my_cur"] = self.getValueInOtherCurrency(symbol, balance, self.fcur_, True)
+
+
+        dummybtc = 0.99999999
+        dummyusd = 998.88888888
+        total_usd = self.getValueInOtherCurrency('BTC', total_btc, 'USD', True)
+        table_data = []
+
+        table_data = [
+            [Color('{autoyellow}Total Balance{/autoyellow}\n{autocyan}' + str(dummybtc) + '{/autocyan} BTC\n{autogreen}' + str(dummyusd) + '{/autogreen} USD'),
+             Color('{autoyellow}Wallet{/autoyellow}\n{autoyellow}Total{/autoyellow}\n{autoyellow}Value{/autoyellow}'),
+        title =[Color('{autoyellow}Total Balance{/autoyellow}\nɃ{autocyan}' + str("%.6f" % total_btc) + '{/autocyan}\n${autogreen}' + str("%.6f" % total_usd) + '{/autogreen}'),
+                Color('{autoyellow}Wallet{/autoyellow}\n{autoyellow}Confirmed+{/autoyellow}\n{autoyellow}Unconfirmed{/autoyellow}'),
+                Color('{autoyellow}Exchange+{/autoyellow}\n{autoyellow}AE_Conf+{/autoyellow}\n{autoyellow}AE_Unconf{/autoyellow}'),
+                Color('{autoyellow}Total{/autoyellow}\n{autoyellow}USD{/autoyellow}\n{autoyellow}Value{/autoyellow}'),
+             Color('{autoyellow}Exchange{/autoyellow}\n{autoyellow}Total{/autoyellow}\n{autoyellow}Value{/autoyellow}'),
+            ], # Title
+             ]
+
+        if self.other_cur:
+            title.append(Color('{autoyellow}Total{/autoyellow}\n{autoyellow}' + self.fcur_ + '{/autoyellow}\n{autoyellow}Value{/autoyellow}'))
+
+        table_data.append(title)
+
+            [Color('{autocyan}Bitcoin{/autocyan}'),        Color( str(dummybtc)), Color('{autogreen}' + str(dummyusd) + '{/autogreen}'), Color('{autored}' + str(dummybtc) + '{/autored}')],
+            [Color('{autocyan}Zcash{/autocyan}'),          Color( str(dummybtc)), Color('{autogreen}' + str(dummyusd) + '{/autogreen}'), Color('{autored}' + str(dummybtc) + '{/autored}')],
+            [Color('{autocyan}Digibyte-Skein{/autocyan}'), Color( str(dummybtc)), Color('{autogreen}' + str(dummyusd) + '{/autogreen}'), Color('{autored}' + str(dummybtc) + '{/autored}')],
+            [Color('{autocyan}Zclassic{/autocyan}'),       Color( str(dummybtc)), Color('{autogreen}' + str(dummyusd) + '{/autogreen}'), Color('{autored}' + str(dummybtc) + '{/autored}')],
+        for coin in json_dict["getuserallbalances"]["data"]:
+            symbol = self.crypto_symbols_[coin["coin"]]
+
+            coin_line = [
+                    Color('{autocyan}' + coin["coin"].title() + '{/autocyan}'),
+                    Color( str(coins[symbol + '_balance'])),
+                    Color('{autored}' + str(coins[symbol + '_exchange']) + '{/autored}'),
+                    Color('${autogreen}' + str("%.2f" % coins[symbol + '_fiat_usd']) + '{/autogreen}'),
+                ]
+        table_instance = SingleTable(table_data)
+        table_instance.inner_heading_row_border = False
+        table_instance.inner_row_border = True
+        table_instance.justify_columns = {0: 'center', 1: 'center', 2: 'center'}
+        print (table_instance.table)
+
+            if self.other_cur:
+                sign = ""
+                if self.fcur_ == 'TRY':
+                    sign = '₺'
+                elif self.fcur_ == 'EUR':
+                    sign = '€'
+                if self.fcur_ == 'AZN':
+                    sign = '₼'
+                elif self.fcur_ == 'GBP':
+                    sign = '£'
+                elif self.fcur_ == 'CNY' or self.fcur_ == 'JPY' :
+                    sign = '¥'
+                elif self.fcur_ == 'AUD':
+                    sign = '$'
+                elif self.fcur_ == 'ALL':
+                    sign = 'L'
+
+                coin_line.append(Color(sign + '{autogreen}' + str("%.2f" % coins[symbol + '_fiat_my_cur']) + '{/autogreen}'))
+
+            table_data.append(coin_line)
+
+        self.balances_table_ = SingleTable(table_data)
+        self.balances_table_.inner_heading_row_border = False
+        self.balances_table_.inner_row_border = True
+        self.balances_table_.justify_columns = {0: 'center', 1: 'center', 2: 'center'}
+        print()
+        print (self.balances_table_.table)
+
+    # I just don't wanna see this lazy code in constructor lol
+    def setSymbols(self):
+        self.symbols_ = {
+        self.crypto_symbols_ = {
+            "adzcoin": "ADZ",
+            "auroracoin": "AUR",
+            "bitcoin": "BTC",
+@ -1,15 +1,132 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+from colorclass import Color, Windows
+from terminaltables import SingleTable
+import requests
+import argparse
+import json
+import time
+from dashing import QuickDash
+
+parser = argparse.ArgumentParser(description="MINING\nPOOL\nHUB\nInformation Gatherer")
+parser.add_argument('-a', metavar='api_key', required=True, help='API KEY from \'Edit Account\' page')
+parser.add_argument('-i', metavar='id', help='USER ID from \'Edit Account\' page')
+parser.add_argument('-c', metavar='currency', default='btc', help='Which exchange currency to display total in (default btc)')
+parser.add_argument('-f', metavar='fiat_currency', default='usd', help='Which fiat currency to display total in')
+args = parser.parse_args()
+
+class MphInfo:
+    def __init__(self, api_key, id, currency, fiat_currency):
+        Windows.enable(auto_colors=True, reset_atexit=True)  # For just Windows
+        self.key_     = api_key
+        self.id_      = id
+        self.cur_     = currency
+        self.fcur_    = fiat_currency
+        self.symbols_ = {}
+        self.setSymbols()
+
+        # Print Balances
+        self.printBalances()
+
+    def getJson(self, method, coin=False, id=False):
+        if coin == False and id == False:
+            url="https://{}miningpoolhub.com/index.php?page=api&action={}&api_key={}&id={}".format("", method, self.key_, "")
+            raw_response = requests.get(url).text
+            response = json.loads(raw_response)
+            return response
+
+    def getValueInOurCoin(self, symbol, amount, compare=args.c):
+        if symbol.upper() == compare.upper():
+            return amount
+        url = "https://api.cryptonator.com/api/ticker/{}-{}".format(symbol.lower(), compare.lower())
+        raw_response = requests.get(url).text
+        response = json.loads(raw_response)
+        price = response["ticker"]["price"]
+        value = float(price) * float(amount)
+        return value
+
+
+    def printBalances(self):
+
+        response = self.getJson("getuserallbalances")
+
+        coins = {}
+        for coin in response["getuserallbalances"]["data"]:
+            symbol = self.symbols_[coin["coin"]]
+            balance = sum([
+              coin["confirmed"],
+              coin["unconfirmed"],
+              coin["ae_confirmed"],
+              coin["ae_unconfirmed"],
+              coin["exchange"]
+             ])
+            coins[symbol] = balance
+
+        dummybtc = 0.99999999
+        dummyusd = 998.88888888
+
+        table_data = [
+            [Color('{autoyellow}Total Balance{/autoyellow}\n{autocyan}' + str(dummybtc) + '{/autocyan} BTC\n{autogreen}' + str(dummyusd) + '{/autogreen} USD'),
+             Color('{autoyellow}Wallet{/autoyellow}\n{autoyellow}Total{/autoyellow}\n{autoyellow}Value{/autoyellow}'),
+             Color('{autoyellow}Total{/autoyellow}\n{autoyellow}USD{/autoyellow}\n{autoyellow}Value{/autoyellow}'),
+             Color('{autoyellow}Exchange{/autoyellow}\n{autoyellow}Total{/autoyellow}\n{autoyellow}Value{/autoyellow}'),
+            ], # Title
+
+
+            [Color('{autocyan}Bitcoin{/autocyan}'),        Color( str(dummybtc)), Color('{autogreen}' + str(dummyusd) + '{/autogreen}'), Color('{autored}' + str(dummybtc) + '{/autored}')],
+            [Color('{autocyan}Zcash{/autocyan}'),          Color( str(dummybtc)), Color('{autogreen}' + str(dummyusd) + '{/autogreen}'), Color('{autored}' + str(dummybtc) + '{/autored}')],
+            [Color('{autocyan}Digibyte-Skein{/autocyan}'), Color( str(dummybtc)), Color('{autogreen}' + str(dummyusd) + '{/autogreen}'), Color('{autored}' + str(dummybtc) + '{/autored}')],
+            [Color('{autocyan}Zclassic{/autocyan}'),       Color( str(dummybtc)), Color('{autogreen}' + str(dummyusd) + '{/autogreen}'), Color('{autored}' + str(dummybtc) + '{/autored}')],
+        ]
+        table_instance = SingleTable(table_data)
+        table_instance.inner_heading_row_border = False
+        table_instance.inner_row_border = True
+        table_instance.justify_columns = {0: 'center', 1: 'center', 2: 'center'}
+        print (table_instance.table)
+
+    # I just don't wanna see this lazy code in constructor lol
+    def setSymbols(self):
+        self.symbols_ = {
+            "adzcoin": "ADZ",
+            "auroracoin": "AUR",
+            "bitcoin": "BTC",
+            "bitcoin-cash": "BCH",
+            "bitcoin-gold": "BTG",
+            "dash": "DSH",
+            "digibyte": "DGB",
+            "digibyte-groestl": "DGB",
+            "digibyte-skein": "DGB",
+            "digibyte-qubit": "DGB",
+            "ethereum": "ETH",
+            "ethereum-classic": "ETC",
+            "expanse": "EXP",
+            "feathercoin": "FTC",
+            "gamecredits": "GAME",
+            "geocoin": "GEO",
+            "globalboosty": "BSTY",
+            "groestlcoin": "GRS",
+            "litecoin": "LTC",
+            "maxcoin": "MAX",
+            "monacoin": "MONA",
+            "monero": "XMR",
+            "musicoin": "MUSIC",
+            "myriadcoin": "XMY",
+            "myriadcoin-skein": "XMY",
+            "myriadcoin-groestl": "XMY",
+            "myriadcoin-yescrypt": "XMY",
+            "sexcoin": "SXC",
+            "siacoin": "SC",
+            "startcoin": "START",
+            "verge": "XVG",
+            "vertcoin": "VTC",
+            "zcash": "ZEC",
+            "zclassic": "ZCL",
+            "zcoin": "XZC",
+            "zencash": "ZEN"
+        }
+
+def main():
+    d = QuickDash()
+    d.status = "Running..."
+    d.logs.append("Started")
+    for progress in range(100):
+      d.gauges['progess'] = progress
+      if progress % 10 == 0:
+        d.logs.append("Started")
+      time.sleep(0.05)
+
+    d.status = "Done!"
+    time.sleep(1)
+    m = MphInfo(args.a, args.i, args.c, args.f)
+
+if __name__ == '__main__':
+    main()
+@ -44,7 +44,7 @@ $ python display_once.py
+
+### :shit: Windows 10
+
+_Coming soon._ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: and remember donating to above adresses too :kissing_heart:
+_Coming soon._ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: 
+
+
+
+@ -44,7 +44,7 @@ $ python display_once.py
+
+### :shit: Windows 10
+
+_Coming soon._ If you aren't python developer, you can use [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) link :trollface: and remember donating to above adresses too :kissing_heart:
+_Coming soon._ If you aren't python developer, you can start by [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) :trollface: and remember donating to above adresses too :kissing_heart:
+
+
+@ -44,7 +44,7 @@ $ python display_once.py
+
+### :shit: Windows 10
+
+_Coming soon._ But it's easy, if you already know what to do, do it :trollface: and remember donating to above adresses too :kissing_heart:
+_Coming soon._ If you aren't python developer, you can use [this](http://lmgtfy.com/?iie=1&q=python+hello+world+windows) link :trollface: and remember donating to above adresses too :kissing_heart:
+
+
+@@ -0,0 +1,21 @@
+MIT License
+
+Copyright (c) 2018 Orhan Gazi Hafif
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+@ -0,0 +1,21 @@
+MIT License
+
+Copyright (c) 2018 Orhan Gazi Hafif
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+@ -0,0 +1,15 @@
+import time
+from dashing import QuickDash
+
+def main():
+    d = QuickDash()
+    d.status = "Running..."
+    d.logs.append("Started")
+    for progress in range(100):
+      d.gauges['progess'] = progress
+      if progress % 10 == 0:
+        d.logs.append("Started")
+      time.sleep(0.05)
+
+    d.status = "Done!"
+    time.sleep(1)
+@@ -0,0 +1,7 @@
+from time import sleep, time
+import math
+import json
+
+from dashing import *
+
+@ -12,7 +12,14 @@
+
+## Usage
+
+### :penguin: Linux 
+### :penguin: Ubuntu 16.04
+
+First, we need to install its dependency, (if you don't have pip, do `sudo apt -y install python3-pip`):
+
+```bash
+sudo -H pip3 install dashing
+```
+
+Clone this repository to your home directory or wherever you want:
+
+```bash
+@ -1,4 +1,4 @@
+### Donation :dollar: :euro: :pound: :yen:
+## Donation :dollar: :euro: :pound: :yen:
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/>  Donate **Bitcoin** to this address:
+```cpp
+@ -1,13 +1,11 @@
+### Donation :dollar: :euro: :pound: :yen:
+
+<br>
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/>  Donate **Bitcoin** to this address
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/>  Donate **Bitcoin** to this address:
+```cpp
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs   
+```
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="15" height="15"/>  Donate **Ethereum** to this address
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="15" height="15"/>  Donate **Ethereum** to this address:
+```cpp
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB
+```
+@ -18,7 +18,7 @@
+Clone this repository to your home directory or wherever you want:
+
+```bash
+cd ~ && git clone https://github.com/cosmicog/miningpoolhub_info
+$ cd ~ && git clone https://github.com/cosmicog/miningpoolhub_info
+```
+
+Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&action=edit) page and copy your api key, and paste it into `api_key.txt` file in this repository with your favourite editor.
+@ -26,13 +26,13 @@ Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&a
+And run the continuous one by:
+
+```bash
+python display_contiuously.py
+$ python display_contiuously.py
+```
+
+Or just once:
+
+```bash
+python display_once.py
+$ python display_once.py
+```
+
+<br> 
+@ -1,5 +1,3 @@
+Python application to run on terminal and display information about your mining status on [miningpoolhub](https://miningpoolhub.com) with your API key.
+
+### Donation :dollar: :euro: :pound: :yen:
+
+<br>
+@ -8,7 +6,6 @@ Python application to run on terminal and display information about your mining
+```cpp
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs
+```
+<br>
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="15" height="15"/>  Donate **Ethereum** to this address
+```cpp
+@ -1,7 +1,5 @@
+Python application to run on terminal and display information about your mining status on [miningpoolhub](https://miningpoolhub.com) with your API key.
+
+<br>
+
+### Donation :dollar: :euro: :pound: :yen:
+
+<br>
+@ -16,8 +16,6 @@ Python application to run on terminal and display information about your mining
+```cpp
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB
+```
+<br>
+<br>
+
+## Usage
+@ -1 +1,52 @@
+# miningpoolhub_info
+Python application to run on terminal and display information about your mining status on [miningpoolhub](https://miningpoolhub.com) with your API key.
+
+<br>
+
+### Donation :dollar: :euro: :pound: :yen:
+
+<br>
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/1.png" width="15" height="15"/>  Donate **Bitcoin** to this address
+```cpp
+15A3npQyd8Xcagm99tEdsGmGbp7hLjunGs    
+```
+<br>
+
+<img src="https://github.com/webcyou/crypto-currency-icon/blob/master/design/images/default/3.png" width="15" height="15"/>  Donate **Ethereum** to this address
+```cpp
+0xBe2d703e50BAe4779E971CaB4081e7E401BB18dB
+```
+<br>
+<br>
+
+## Usage
+
+### :penguin: Linux 
+Clone this repository to your home directory or wherever you want:
+
+```bash
+cd ~ && git clone https://github.com/cosmicog/miningpoolhub_info
+```
+
+Go to [Mining Pool Hub - Edit Account](https://miningpoolhub.com/?page=account&action=edit) page and copy your api key, and paste it into `api_key.txt` file in this repository with your favourite editor.
+
+And run the continuous one by:
+
+```bash
+python display_contiuously.py
+```
+
+Or just once:
+
+```bash
+python display_once.py
+```
+
+<br> 
+
+### :shit: Windows 10
+
+_Coming soon._ But it's easy, if you already know what to do, do it :trollface: and remember donating to above adresses too :kissing_heart:
+
+@ -0,0 +1 @@
+# miningpoolhub_info
